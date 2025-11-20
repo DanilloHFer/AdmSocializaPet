@@ -449,6 +449,253 @@
             margin-bottom: 1rem;
         }
 
+        /* Admin Navigation Tabs */
+        .admin-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: #f0f0f0;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Banner Management */
+        .banner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .banner-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .banner-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .banner-content {
+            padding: 1.5rem;
+        }
+
+        .banner-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .banner-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Product Management */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Gallery Management */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Content Management */
+        .content-section {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .content-section h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-editor {
+            width: 100%;
+            min-height: 150px;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .content-editor:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Settings Management */
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .setting-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .setting-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .admin-container {
@@ -465,7 +712,16 @@
             }
 
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .admin-nav {
+                padding: 0.5rem;
+            }
+
+            .nav-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
             }
 
             .posts-header {
@@ -486,7 +742,10 @@
                 align-items: flex-start;
             }
 
-            .post-actions {
+            .post-actions,
+            .banner-actions,
+            .product-actions,
+            .gallery-actions {
                 width: 100%;
                 justify-content: flex-end;
             }
@@ -494,6 +753,29 @@
             .modal-content {
                 margin: 1rem;
                 padding: 1.5rem;
+            }
+
+            .banner-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -552,6 +834,16 @@
             </div>
         </div>
 
+        <!-- Navigation Tabs -->
+        <div class="admin-nav">
+            <button class="nav-tab active" onclick="showTab('posts')">📝 Posts</button>
+            <button class="nav-tab" onclick="showTab('banners')">🖼️ Banners</button>
+            <button class="nav-tab" onclick="showTab('products')">🛒 Produtos</button>
+            <button class="nav-tab" onclick="showTab('gallery')">📸 Galeria</button>
+            <button class="nav-tab" onclick="showTab('content')">📄 Conteúdo</button>
+            <button class="nav-tab" onclick="showTab('settings')">⚙️ Configurações</button>
+        </div>
+
         <!-- Statistics -->
         <div class="stats-grid">
             <div class="stat-card">
@@ -561,34 +853,176 @@
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">🐕</div>
-                <div class="stat-number" id="guiaRacasPosts">0</div>
-                <div class="stat-label">Guia de Raças</div>
+                <div class="stat-icon">🖼️</div>
+                <div class="stat-number" id="totalBanners">0</div>
+                <div class="stat-label">Banners</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">📅</div>
-                <div class="stat-number" id="thisWeekPosts">0</div>
-                <div class="stat-label">Esta Semana</div>
+                <div class="stat-icon">🛒</div>
+                <div class="stat-number" id="totalProducts">0</div>
+                <div class="stat-label">Produtos</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">🏷️</div>
-                <div class="stat-number" id="totalCategories">0</div>
-                <div class="stat-label">Categorias</div>
+                <div class="stat-icon">📸</div>
+                <div class="stat-number" id="totalGallery">0</div>
+                <div class="stat-label">Galeria</div>
             </div>
         </div>
 
         <!-- Posts Management -->
-        <div class="posts-container">
-            <div class="posts-header">
-                <h2>📚 Gerenciar Posts</h2>
-                <input type="text" class="search-box" placeholder="🔍 Buscar posts..." 
-                       onkeyup="filterPosts(this.value)">
+        <div class="tab-content active" id="postsTab">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>📚 Gerenciar Posts</h2>
+                    <input type="text" class="search-box" placeholder="🔍 Buscar posts..." 
+                           onkeyup="filterPosts(this.value)">
+                </div>
+                
+                <div class="posts-grid" id="postsGrid">
+                    <!-- Posts will be loaded here -->
+                </div>
             </div>
-            
-            <div class="posts-grid" id="postsGrid">
-                <!-- Posts will be loaded here -->
+        </div>
+
+        <!-- Banners Management -->
+        <div class="tab-content" id="bannersTab">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>🖼️ Gerenciar Banners</h2>
+                    <button class="btn btn-primary" onclick="openBannerModal()">
+                        ➕ Novo Banner
+                    </button>
+                </div>
+                
+                <div class="banner-grid" id="bannersGrid">
+                    <!-- Banners will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Management -->
+        <div class="tab-content" id="productsTab">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>🛒 Gerenciar Produtos</h2>
+                    <button class="btn btn-primary" onclick="openProductModal()">
+                        ➕ Novo Produto
+                    </button>
+                </div>
+                
+                <div class="product-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Management -->
+        <div class="tab-content" id="galleryTab">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>📸 Gerenciar Galeria</h2>
+                    <button class="btn btn-primary" onclick="openGalleryModal()">
+                        ➕ Nova Imagem
+                    </button>
+                </div>
+                
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Management -->
+        <div class="tab-content" id="contentTab">
+            <div class="content-section">
+                <h3>🏠 Página Principal</h3>
+                <div class="form-group">
+                    <label>Título Principal</label>
+                    <input type="text" class="form-control" id="siteTitle" placeholder="SocializaPet">
+                </div>
+                <div class="form-group">
+                    <label>Subtítulo</label>
+                    <input type="text" class="form-control" id="siteSubtitle" placeholder="Conectando pets e pessoas com amor">
+                </div>
+                <div class="form-group">
+                    <label>Descrição Sobre Nós</label>
+                    <textarea class="content-editor" id="aboutContent" placeholder="Conteúdo da seção Sobre Nós..."></textarea>
+                </div>
+                <button class="btn btn-success" onclick="saveContent('main')">💾 Salvar Conteúdo Principal</button>
+            </div>
+
+            <div class="content-section">
+                <h3>🌱 Projeto Socializa</h3>
+                <div class="form-group">
+                    <label>Conteúdo do Projeto</label>
+                    <textarea class="content-editor" id="projectContent" placeholder="Conteúdo da página do projeto..."></textarea>
+                </div>
+                <button class="btn btn-success" onclick="saveContent('project')">💾 Salvar Projeto Socializa</button>
+            </div>
+
+            <div class="content-section">
+                <h3>📱 Informações de Contato</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="text" class="form-control" id="whatsappNumber" placeholder="5511999999999">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="contactEmail" placeholder="contato@socializapet.com">
+                    </div>
+                </div>
+                <button class="btn btn-success" onclick="saveContent('contact')">💾 Salvar Contato</button>
+            </div>
+        </div>
+
+        <!-- Settings Management -->
+        <div class="tab-content" id="settingsTab">
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>🎨 Cores do Site</h3>
+                    <div class="form-group">
+                        <label>Cor Principal (Rosa)</label>
+                        <input type="color" class="form-control" id="primaryColor" value="#F28DB2">
+                    </div>
+                    <div class="form-group">
+                        <label>Cor Secundária (Azul)</label>
+                        <input type="color" class="form-control" id="secondaryColor" value="#0597F2">
+                    </div>
+                    <button class="btn btn-success" onclick="saveSettings('colors')">💾 Salvar Cores</button>
+                </div>
+
+                <div class="setting-card">
+                    <h3>📊 Estatísticas do Site</h3>
+                    <div class="form-group">
+                        <label>Pets Adotados</label>
+                        <input type="number" class="form-control" id="adoptedPets" value="500">
+                    </div>
+                    <div class="form-group">
+                        <label>Famílias Felizes</label>
+                        <input type="number" class="form-control" id="happyFamilies" value="350">
+                    </div>
+                    <div class="form-group">
+                        <label>Parceiros</label>
+                        <input type="number" class="form-control" id="partners" value="25">
+                    </div>
+                    <button class="btn btn-success" onclick="saveSettings('stats')">💾 Salvar Estatísticas</button>
+                </div>
+
+                <div class="setting-card">
+                    <h3>🔧 Configurações Gerais</h3>
+                    <div class="form-group">
+                        <label>Logo URL</label>
+                        <input type="url" class="form-control" id="logoUrl" placeholder="socializapet-logo.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Favicon URL</label>
+                        <input type="url" class="form-control" id="faviconUrl" placeholder="socializapet-logo.png">
+                    </div>
+                    <button class="btn btn-success" onclick="saveSettings('general')">💾 Salvar Configurações</button>
+                </div>
             </div>
         </div>
     </div>
@@ -654,6 +1088,141 @@
         </div>
     </div>
 
+    <!-- Banner Modal -->
+    <div class="modal" id="bannerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="bannerModalTitle">🖼️ Novo Banner</h2>
+                <button class="close-btn" onclick="closeBannerModal()">✕</button>
+            </div>
+            
+            <form onsubmit="saveBanner(event)">
+                <div class="form-group">
+                    <label for="bannerTitle">Título do Banner</label>
+                    <input type="text" id="bannerTitle" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bannerText">Texto do Banner</label>
+                    <textarea id="bannerText" class="form-control" placeholder="Texto que aparece no banner..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bannerImage">URL da Imagem</label>
+                    <input type="url" id="bannerImage" class="form-control" required placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+                
+                <div class="form-group">
+                    <label for="bannerLink">Link (opcional)</label>
+                    <input type="url" id="bannerLink" class="form-control" placeholder="https://exemplo.com/destino">
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeBannerModal()">❌ Cancelar</button>
+                    <button type="submit" class="btn btn-success">💾 Salvar Banner</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="productModalTitle">🛒 Novo Produto</h2>
+                <button class="close-btn" onclick="closeProductModal()">✕</button>
+            </div>
+            
+            <form onsubmit="saveProduct(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Nome do Produto</label>
+                        <input type="text" id="productName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">Preço</label>
+                        <input type="text" id="productPrice" class="form-control" required placeholder="R$ 29,90">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoria</label>
+                        <select id="productCategory" class="form-control" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Ração">🍖 Ração</option>
+                            <option value="Brinquedos">🎾 Brinquedos</option>
+                            <option value="Acessórios">🎀 Acessórios</option>
+                            <option value="Cuidados">💊 Cuidados</option>
+                            <option value="Camas">🛏️ Camas</option>
+                            <option value="Coleiras">🦮 Coleiras</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productImage">URL da Imagem</label>
+                        <input type="url" id="productImage" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDescription">Descrição</label>
+                    <textarea id="productDescription" class="form-control" required placeholder="Descrição detalhada do produto..."></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">❌ Cancelar</button>
+                    <button type="submit" class="btn btn-success">💾 Salvar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="galleryModalTitle">📸 Nova Imagem</h2>
+                <button class="close-btn" onclick="closeGalleryModal()">✕</button>
+            </div>
+            
+            <form onsubmit="saveGalleryItem(event)">
+                <div class="form-group">
+                    <label for="galleryTitle">Título da Imagem</label>
+                    <input type="text" id="galleryTitle" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="galleryDescription">Descrição</label>
+                    <textarea id="galleryDescription" class="form-control" placeholder="Descrição da imagem..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="galleryImage">URL da Imagem</label>
+                    <input type="url" id="galleryImage" class="form-control" required placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+                
+                <div class="form-group">
+                    <label for="galleryCategory">Categoria</label>
+                    <select id="galleryCategory" class="form-control" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Adoções">❤️ Adoções</option>
+                        <option value="Eventos">🎉 Eventos</option>
+                        <option value="Cuidados">💊 Cuidados</option>
+                        <option value="Diversão">🎾 Diversão</option>
+                        <option value="Famílias">👨‍👩‍👧‍👦 Famílias Felizes</option>
+                    </select>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeGalleryModal()">❌ Cancelar</button>
+                    <button type="submit" class="btn btn-success">💾 Salvar Imagem</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Admin credentials
         const ADMIN_CREDENTIALS = {
@@ -661,14 +1230,23 @@
             password: "Gig@Byte2012"
         };
 
-        // Blog posts storage
+        // Storage for all content
         let blogPosts = JSON.parse(localStorage.getItem('socializaPetPosts')) || [];
+        let banners = JSON.parse(localStorage.getItem('socializaPetBanners')) || [];
+        let products = JSON.parse(localStorage.getItem('socializaPetProducts')) || [];
+        let gallery = JSON.parse(localStorage.getItem('socializaPetGallery')) || [];
+        let siteContent = JSON.parse(localStorage.getItem('socializaPetContent')) || {};
+        let siteSettings = JSON.parse(localStorage.getItem('socializaPetSettings')) || {};
+        
         let editingPostId = null;
+        let editingBannerId = null;
+        let editingProductId = null;
+        let editingGalleryId = null;
 
         // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
             checkAutoLogin();
-            loadPosts();
+            loadAllContent();
         });
 
         // Auto login check
@@ -699,8 +1277,9 @@
         function showAdminPanel() {
             document.getElementById('loginContainer').style.display = 'none';
             document.getElementById('adminContainer').style.display = 'block';
-            updateStats();
+            updateAllStats();
             displayPosts();
+            loadContentForm();
         }
 
         // Logout
@@ -1000,14 +1579,632 @@
             }
         });
 
+        // =============== TAB MANAGEMENT ===============
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            event.target.classList.add('active');
+            
+            // Load content for the selected tab
+            switch(tabName) {
+                case 'posts':
+                    displayPosts();
+                    break;
+                case 'banners':
+                    displayBanners();
+                    break;
+                case 'products':
+                    displayProducts();
+                    break;
+                case 'gallery':
+                    displayGallery();
+                    break;
+                case 'content':
+                    loadContentForm();
+                    break;
+                case 'settings':
+                    loadSettingsForm();
+                    break;
+            }
+        }
+
+        // =============== CONTENT LOADING ===============
+        function loadAllContent() {
+            loadPosts();
+            loadBanners();
+            loadProducts();
+            loadGallery();
+            loadContent();
+            loadSettings();
+        }
+
+        function loadBanners() {
+            if (banners.length === 0 && !localStorage.getItem('bannersInitialized')) {
+                createInitialBanners();
+                localStorage.setItem('bannersInitialized', 'true');
+            }
+        }
+
+        function loadProducts() {
+            if (products.length === 0 && !localStorage.getItem('productsInitialized')) {
+                createInitialProducts();
+                localStorage.setItem('productsInitialized', 'true');
+            }
+        }
+
+        function loadGallery() {
+            if (gallery.length === 0 && !localStorage.getItem('galleryInitialized')) {
+                createInitialGallery();
+                localStorage.setItem('galleryInitialized', 'true');
+            }
+        }
+
+        function loadContent() {
+            if (Object.keys(siteContent).length === 0) {
+                siteContent = {
+                    title: 'SocializaPet',
+                    subtitle: 'Conectando pets e pessoas com amor 🐾',
+                    about: 'Somos uma organização dedicada ao bem-estar animal e à criação de vínculos especiais entre pets e famílias.',
+                    project: 'O Projeto Socializa é nossa iniciativa de impacto social para promover a adoção responsável.',
+                    whatsapp: '5511999999999',
+                    email: 'contato@socializapet.com'
+                };
+                localStorage.setItem('socializaPetContent', JSON.stringify(siteContent));
+            }
+        }
+
+        function loadSettings() {
+            if (Object.keys(siteSettings).length === 0) {
+                siteSettings = {
+                    primaryColor: '#F28DB2',
+                    secondaryColor: '#0597F2',
+                    adoptedPets: 500,
+                    happyFamilies: 350,
+                    partners: 25,
+                    logoUrl: 'socializapet-logo.png',
+                    faviconUrl: 'socializapet-logo.png'
+                };
+                localStorage.setItem('socializaPetSettings', JSON.stringify(siteSettings));
+            }
+        }
+
+        // =============== INITIAL DATA CREATION ===============
+        function createInitialBanners() {
+            const initialBanners = [
+                {
+                    id: Date.now() + 1,
+                    title: 'Adote um Amigo',
+                    text: 'Encontre seu companheiro perfeito',
+                    image: 'https://picsum.photos/800/400?random=1',
+                    link: '#adocao'
+                },
+                {
+                    id: Date.now() + 2,
+                    title: 'Produtos de Qualidade',
+                    text: 'Tudo para o seu pet',
+                    image: 'https://picsum.photos/800/400?random=2',
+                    link: 'loja.html'
+                },
+                {
+                    id: Date.now() + 3,
+                    title: 'Projeto Socializa',
+                    text: 'Juntos fazemos a diferença',
+                    image: 'https://picsum.photos/800/400?random=3',
+                    link: 'projeto-socializa.html'
+                }
+            ];
+            
+            banners = initialBanners;
+            localStorage.setItem('socializaPetBanners', JSON.stringify(banners));
+        }
+
+        function createInitialProducts() {
+            const initialProducts = [
+                {
+                    id: Date.now() + 1,
+                    name: 'Ração Premium',
+                    price: 'R$ 89,90',
+                    category: 'Ração',
+                    image: 'https://picsum.photos/300/300?random=10',
+                    description: 'Ração premium para cães adultos, com ingredientes naturais e balanceada.'
+                },
+                {
+                    id: Date.now() + 2,
+                    name: 'Bola Interativa',
+                    price: 'R$ 24,90',
+                    category: 'Brinquedos',
+                    image: 'https://picsum.photos/300/300?random=11',
+                    description: 'Bola interativa que estimula a atividade física e mental do seu pet.'
+                },
+                {
+                    id: Date.now() + 3,
+                    name: 'Coleira Personalizada',
+                    price: 'R$ 39,90',
+                    category: 'Coleiras',
+                    image: 'https://picsum.photos/300/300?random=12',
+                    description: 'Coleira resistente e confortável, disponível em várias cores.'
+                }
+            ];
+            
+            products = initialProducts;
+            localStorage.setItem('socializaPetProducts', JSON.stringify(products));
+        }
+
+        function createInitialGallery() {
+            const initialGallery = [
+                {
+                    id: Date.now() + 1,
+                    title: 'Max e sua nova família',
+                    description: 'História de adoção feliz',
+                    image: 'https://picsum.photos/400/300?random=20',
+                    category: 'Adoções'
+                },
+                {
+                    id: Date.now() + 2,
+                    title: 'Evento de Adoção 2024',
+                    description: 'Nosso maior evento do ano',
+                    image: 'https://picsum.photos/400/300?random=21',
+                    category: 'Eventos'
+                },
+                {
+                    id: Date.now() + 3,
+                    title: 'Cuidados Veterinários',
+                    description: 'Check-up completo',
+                    image: 'https://picsum.photos/400/300?random=22',
+                    category: 'Cuidados'
+                }
+            ];
+            
+            gallery = initialGallery;
+            localStorage.setItem('socializaPetGallery', JSON.stringify(gallery));
+        }
+
+        // =============== STATISTICS UPDATE ===============
+        function updateAllStats() {
+            document.getElementById('totalPosts').textContent = blogPosts.length;
+            document.getElementById('totalBanners').textContent = banners.length;
+            document.getElementById('totalProducts').textContent = products.length;
+            document.getElementById('totalGallery').textContent = gallery.length;
+        }
+
+        // =============== BANNER MANAGEMENT ===============
+        function displayBanners() {
+            const bannersGrid = document.getElementById('bannersGrid');
+            
+            if (banners.length === 0) {
+                bannersGrid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🖼️</div>
+                        <h3>Nenhum banner encontrado</h3>
+                        <p>Crie seu primeiro banner clicando no botão "Novo Banner"</p>
+                    </div>
+                `;
+                return;
+            }
+
+            bannersGrid.innerHTML = banners.map(banner => `
+                <div class="banner-card">
+                    <img src="${banner.image}" alt="${banner.title}" class="banner-image" onerror="this.src='https://picsum.photos/300/200?random=1'">
+                    <div class="banner-content">
+                        <div class="banner-title">${banner.title}</div>
+                        <div class="banner-text">${banner.text}</div>
+                        <div class="banner-actions">
+                            <button class="btn btn-primary btn-sm" onclick="editBanner(${banner.id})">✏️ Editar</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteBanner(${banner.id})">🗑️ Excluir</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openBannerModal() {
+            editingBannerId = null;
+            document.getElementById('bannerModalTitle').textContent = '🖼️ Novo Banner';
+            document.getElementById('bannerTitle').value = '';
+            document.getElementById('bannerText').value = '';
+            document.getElementById('bannerImage').value = '';
+            document.getElementById('bannerLink').value = '';
+            document.getElementById('bannerModal').style.display = 'flex';
+        }
+
+        function editBanner(id) {
+            const banner = banners.find(b => b.id === id);
+            if (!banner) return;
+            
+            editingBannerId = id;
+            document.getElementById('bannerModalTitle').textContent = '✏️ Editar Banner';
+            document.getElementById('bannerTitle').value = banner.title;
+            document.getElementById('bannerText').value = banner.text;
+            document.getElementById('bannerImage').value = banner.image;
+            document.getElementById('bannerLink').value = banner.link || '';
+            document.getElementById('bannerModal').style.display = 'flex';
+        }
+
+        function closeBannerModal() {
+            document.getElementById('bannerModal').style.display = 'none';
+            editingBannerId = null;
+        }
+
+        function saveBanner(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('bannerTitle').value;
+            const text = document.getElementById('bannerText').value;
+            const image = document.getElementById('bannerImage').value;
+            const link = document.getElementById('bannerLink').value;
+            
+            if (editingBannerId) {
+                const bannerIndex = banners.findIndex(b => b.id === editingBannerId);
+                if (bannerIndex !== -1) {
+                    banners[bannerIndex] = {
+                        ...banners[bannerIndex],
+                        title, text, image, link
+                    };
+                    showToast('✅ Banner atualizado com sucesso!');
+                }
+            } else {
+                const newBanner = {
+                    id: Date.now(),
+                    title, text, image, link
+                };
+                banners.unshift(newBanner);
+                showToast('✅ Banner criado com sucesso!');
+            }
+            
+            localStorage.setItem('socializaPetBanners', JSON.stringify(banners));
+            updateAllStats();
+            displayBanners();
+            closeBannerModal();
+        }
+
+        function deleteBanner(id) {
+            const banner = banners.find(b => b.id === id);
+            if (!banner) return;
+            
+            if (confirm(`Tem certeza que deseja excluir o banner "${banner.title}"?`)) {
+                banners = banners.filter(b => b.id !== id);
+                localStorage.setItem('socializaPetBanners', JSON.stringify(banners));
+                updateAllStats();
+                displayBanners();
+                showToast('🗑️ Banner excluído com sucesso!');
+            }
+        }
+
+        // =============== PRODUCT MANAGEMENT ===============
+        function displayProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            
+            if (products.length === 0) {
+                productsGrid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🛒</div>
+                        <h3>Nenhum produto encontrado</h3>
+                        <p>Crie seu primeiro produto clicando no botão "Novo Produto"</p>
+                    </div>
+                `;
+                return;
+            }
+
+            productsGrid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://picsum.photos/300/300?random=1'">
+                    <div class="product-content">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price}</div>
+                        <div class="product-description">${product.description}</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-sm" onclick="editProduct(${product.id})">✏️ Editar</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">🗑️ Excluir</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openProductModal() {
+            editingProductId = null;
+            document.getElementById('productModalTitle').textContent = '🛒 Novo Produto';
+            document.getElementById('productName').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productCategory').value = '';
+            document.getElementById('productImage').value = '';
+            document.getElementById('productDescription').value = '';
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function editProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            
+            editingProductId = id;
+            document.getElementById('productModalTitle').textContent = '✏️ Editar Produto';
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productImage').value = product.image;
+            document.getElementById('productDescription').value = product.description;
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+            editingProductId = null;
+        }
+
+        function saveProduct(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('productName').value;
+            const price = document.getElementById('productPrice').value;
+            const category = document.getElementById('productCategory').value;
+            const image = document.getElementById('productImage').value;
+            const description = document.getElementById('productDescription').value;
+            
+            if (editingProductId) {
+                const productIndex = products.findIndex(p => p.id === editingProductId);
+                if (productIndex !== -1) {
+                    products[productIndex] = {
+                        ...products[productIndex],
+                        name, price, category, image, description
+                    };
+                    showToast('✅ Produto atualizado com sucesso!');
+                }
+            } else {
+                const newProduct = {
+                    id: Date.now(),
+                    name, price, category, image, description
+                };
+                products.unshift(newProduct);
+                showToast('✅ Produto criado com sucesso!');
+            }
+            
+            localStorage.setItem('socializaPetProducts', JSON.stringify(products));
+            updateAllStats();
+            displayProducts();
+            closeProductModal();
+        }
+
+        function deleteProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            
+            if (confirm(`Tem certeza que deseja excluir o produto "${product.name}"?`)) {
+                products = products.filter(p => p.id !== id);
+                localStorage.setItem('socializaPetProducts', JSON.stringify(products));
+                updateAllStats();
+                displayProducts();
+                showToast('🗑️ Produto excluído com sucesso!');
+            }
+        }
+
+        // =============== GALLERY MANAGEMENT ===============
+        function displayGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            
+            if (gallery.length === 0) {
+                galleryGrid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📸</div>
+                        <h3>Nenhuma imagem encontrada</h3>
+                        <p>Adicione sua primeira imagem clicando no botão "Nova Imagem"</p>
+                    </div>
+                `;
+                return;
+            }
+
+            galleryGrid.innerHTML = gallery.map(item => `
+                <div class="gallery-item">
+                    <img src="${item.image}" alt="${item.title}" class="gallery-image" onerror="this.src='https://picsum.photos/400/300?random=1'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-actions">
+                            <button class="btn btn-primary btn-sm" onclick="editGalleryItem(${item.id})">✏️</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteGalleryItem(${item.id})">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openGalleryModal() {
+            editingGalleryId = null;
+            document.getElementById('galleryModalTitle').textContent = '📸 Nova Imagem';
+            document.getElementById('galleryTitle').value = '';
+            document.getElementById('galleryDescription').value = '';
+            document.getElementById('galleryImage').value = '';
+            document.getElementById('galleryCategory').value = '';
+            document.getElementById('galleryModal').style.display = 'flex';
+        }
+
+        function editGalleryItem(id) {
+            const item = gallery.find(g => g.id === id);
+            if (!item) return;
+            
+            editingGalleryId = id;
+            document.getElementById('galleryModalTitle').textContent = '✏️ Editar Imagem';
+            document.getElementById('galleryTitle').value = item.title;
+            document.getElementById('galleryDescription').value = item.description;
+            document.getElementById('galleryImage').value = item.image;
+            document.getElementById('galleryCategory').value = item.category;
+            document.getElementById('galleryModal').style.display = 'flex';
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').style.display = 'none';
+            editingGalleryId = null;
+        }
+
+        function saveGalleryItem(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('galleryTitle').value;
+            const description = document.getElementById('galleryDescription').value;
+            const image = document.getElementById('galleryImage').value;
+            const category = document.getElementById('galleryCategory').value;
+            
+            if (editingGalleryId) {
+                const itemIndex = gallery.findIndex(g => g.id === editingGalleryId);
+                if (itemIndex !== -1) {
+                    gallery[itemIndex] = {
+                        ...gallery[itemIndex],
+                        title, description, image, category
+                    };
+                    showToast('✅ Imagem atualizada com sucesso!');
+                }
+            } else {
+                const newItem = {
+                    id: Date.now(),
+                    title, description, image, category
+                };
+                gallery.unshift(newItem);
+                showToast('✅ Imagem adicionada com sucesso!');
+            }
+            
+            localStorage.setItem('socializaPetGallery', JSON.stringify(gallery));
+            updateAllStats();
+            displayGallery();
+            closeGalleryModal();
+        }
+
+        function deleteGalleryItem(id) {
+            const item = gallery.find(g => g.id === id);
+            if (!item) return;
+            
+            if (confirm(`Tem certeza que deseja excluir a imagem "${item.title}"?`)) {
+                gallery = gallery.filter(g => g.id !== id);
+                localStorage.setItem('socializaPetGallery', JSON.stringify(gallery));
+                updateAllStats();
+                displayGallery();
+                showToast('🗑️ Imagem excluída com sucesso!');
+            }
+        }
+
+        // =============== CONTENT MANAGEMENT ===============
+        function loadContentForm() {
+            document.getElementById('siteTitle').value = siteContent.title || '';
+            document.getElementById('siteSubtitle').value = siteContent.subtitle || '';
+            document.getElementById('aboutContent').value = siteContent.about || '';
+            document.getElementById('projectContent').value = siteContent.project || '';
+            document.getElementById('whatsappNumber').value = siteContent.whatsapp || '';
+            document.getElementById('contactEmail').value = siteContent.email || '';
+        }
+
+        function saveContent(type) {
+            switch(type) {
+                case 'main':
+                    siteContent.title = document.getElementById('siteTitle').value;
+                    siteContent.subtitle = document.getElementById('siteSubtitle').value;
+                    siteContent.about = document.getElementById('aboutContent').value;
+                    break;
+                case 'project':
+                    siteContent.project = document.getElementById('projectContent').value;
+                    break;
+                case 'contact':
+                    siteContent.whatsapp = document.getElementById('whatsappNumber').value;
+                    siteContent.email = document.getElementById('contactEmail').value;
+                    break;
+            }
+            
+            localStorage.setItem('socializaPetContent', JSON.stringify(siteContent));
+            showToast('✅ Conteúdo salvo com sucesso!');
+        }
+
+        // =============== SETTINGS MANAGEMENT ===============
+        function loadSettingsForm() {
+            document.getElementById('primaryColor').value = siteSettings.primaryColor || '#F28DB2';
+            document.getElementById('secondaryColor').value = siteSettings.secondaryColor || '#0597F2';
+            document.getElementById('adoptedPets').value = siteSettings.adoptedPets || 500;
+            document.getElementById('happyFamilies').value = siteSettings.happyFamilies || 350;
+            document.getElementById('partners').value = siteSettings.partners || 25;
+            document.getElementById('logoUrl').value = siteSettings.logoUrl || '';
+            document.getElementById('faviconUrl').value = siteSettings.faviconUrl || '';
+        }
+
+        function saveSettings(type) {
+            switch(type) {
+                case 'colors':
+                    siteSettings.primaryColor = document.getElementById('primaryColor').value;
+                    siteSettings.secondaryColor = document.getElementById('secondaryColor').value;
+                    break;
+                case 'stats':
+                    siteSettings.adoptedPets = document.getElementById('adoptedPets').value;
+                    siteSettings.happyFamilies = document.getElementById('happyFamilies').value;
+                    siteSettings.partners = document.getElementById('partners').value;
+                    break;
+                case 'general':
+                    siteSettings.logoUrl = document.getElementById('logoUrl').value;
+                    siteSettings.faviconUrl = document.getElementById('faviconUrl').value;
+                    break;
+            }
+            
+            localStorage.setItem('socializaPetSettings', JSON.stringify(siteSettings));
+            showToast('✅ Configurações salvas com sucesso!');
+        }
+
+        // =============== ENHANCED SYNC FUNCTION ===============
+        function syncWithBlog() {
+            // Sync all content with main site
+            localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+            localStorage.setItem('siteBanners', JSON.stringify(banners));
+            localStorage.setItem('siteProducts', JSON.stringify(products));
+            localStorage.setItem('siteGallery', JSON.stringify(gallery));
+            localStorage.setItem('siteContent', JSON.stringify(siteContent));
+            localStorage.setItem('siteSettings', JSON.stringify(siteSettings));
+            localStorage.setItem('blogSynced', 'true');
+            
+            showToast('🔄 Sincronização completa realizada! Todo o conteúdo foi atualizado.');
+        }
+
+        // =============== ENHANCED EXPORT FUNCTION ===============
+        function exportData() {
+            const allData = {
+                posts: blogPosts,
+                banners: banners,
+                products: products,
+                gallery: gallery,
+                content: siteContent,
+                settings: siteSettings,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(allData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `socializapet-complete-backup-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast('📤 Backup completo exportado com sucesso!');
+        }
+
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closePostModal();
+                closeBannerModal();
+                closeProductModal();
+                closeGalleryModal();
             }
             if (e.ctrlKey && e.key === 'n') {
                 e.preventDefault();
-                openNewPostModal();
+                const activeTab = document.querySelector('.nav-tab.active').textContent;
+                if (activeTab.includes('Posts')) openNewPostModal();
+                if (activeTab.includes('Banners')) openBannerModal();
+                if (activeTab.includes('Produtos')) openProductModal();
+                if (activeTab.includes('Galeria')) openGalleryModal();
             }
         });
     </script>
