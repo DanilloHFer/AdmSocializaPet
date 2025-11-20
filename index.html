@@ -747,21 +747,55 @@
 
         // Load posts from localStorage
         function loadPosts() {
-            // Try to load from both storages for compatibility
-            const mainBlogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-            const adminPosts = JSON.parse(localStorage.getItem('socializaPetPosts')) || [];
+            // Carregar apenas do armazenamento do admin
+            blogPosts = JSON.parse(localStorage.getItem('socializaPetPosts')) || [];
             
-            // Merge and deduplicate
-            const allPosts = [...adminPosts, ...mainBlogPosts];
-            const uniquePosts = allPosts.filter((post, index, self) => 
-                index === self.findIndex(p => p.id === post.id)
-            );
+            // Se não há posts no admin, criar posts iniciais apenas uma vez
+            if (blogPosts.length === 0 && !localStorage.getItem('adminInitialized')) {
+                createInitialPosts();
+                localStorage.setItem('adminInitialized', 'true');
+            }
             
-            blogPosts = uniquePosts;
-            
-            // Save merged posts
-            localStorage.setItem('socializaPetPosts', JSON.stringify(blogPosts));
             updateStats();
+        }
+        
+        // Criar posts iniciais apenas uma vez
+        function createInitialPosts() {
+            const initialPosts = [
+                {
+                    id: Date.now() + 1,
+                    title: "🍽️ 5 Dicas Essenciais para Alimentação do seu Pet",
+                    category: "Alimentação",
+                    image: "https://picsum.photos/400/250?random=1",
+                    excerpt: "Descubra como manter seu pet saudável com uma alimentação equilibrada e nutritiva. Dicas práticas que farão toda a diferença!",
+                    content: "Uma alimentação adequada é fundamental para a saúde do seu pet. Aqui estão 5 dicas essenciais: 1) Escolha ração de qualidade, 2) Mantenha horários regulares, 3) Controle as porções, 4) Ofereça água fresca sempre, 5) Evite alimentos tóxicos para pets.",
+                    date: new Date().toLocaleDateString('pt-BR'),
+                    author: "Admin SocializaPet"
+                },
+                {
+                    id: Date.now() + 2,
+                    title: "🐕 Golden Retriever: Tudo sobre esta Raça Incrível",
+                    category: "Guia de Raças",
+                    image: "https://picsum.photos/400/250?random=3",
+                    excerpt: "Conheça todas as características, cuidados e temperamento do Golden Retriever. Uma das raças mais carinhosas e leais do mundo!",
+                    content: "O Golden Retriever é conhecido por sua personalidade amigável e leal. Características principais: Porte médio a grande, pelagem dourada, muito inteligente, ótimo com crianças, necessita exercícios regulares, expectativa de vida de 10-12 anos. Cuidados especiais: escovação regular, exercícios diários, alimentação balanceada.",
+                    date: new Date().toLocaleDateString('pt-BR'),
+                    author: "Admin SocializaPet"
+                },
+                {
+                    id: Date.now() + 3,
+                    title: "🐕 Labrador: O Companheiro Perfeito para Famílias",
+                    category: "Guia de Raças",
+                    image: "https://picsum.photos/400/250?random=5",
+                    excerpt: "Tudo o que você precisa saber sobre o Labrador: temperamento dócil, cuidados essenciais e por que são ideais para famílias com crianças.",
+                    content: "O Labrador é uma das raças mais populares do mundo. Características: Temperamento dócil e amigável, excelente com crianças, muito leal, porte médio-grande, pelagem resistente à água, alta energia. Necessidades: exercícios diários intensos, alimentação controlada (tendem ao sobrepeso), socialização desde cedo, treinamento positivo.",
+                    date: new Date().toLocaleDateString('pt-BR'),
+                    author: "Admin SocializaPet"
+                }
+            ];
+            
+            blogPosts = initialPosts;
+            localStorage.setItem('socializaPetPosts', JSON.stringify(blogPosts));
         }
 
         // Update statistics
@@ -923,7 +957,11 @@
             
             if (confirm(`Tem certeza que deseja excluir o post "${post.title}"?`)) {
                 blogPosts = blogPosts.filter(p => p.id !== id);
+                
+                // Salvar nos dois locais para garantir sincronização
                 localStorage.setItem('socializaPetPosts', JSON.stringify(blogPosts));
+                localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+                
                 updateStats();
                 displayPosts();
                 showToast('🗑️ Post excluído com sucesso!');
@@ -932,8 +970,10 @@
 
         // Sync with main blog
         function syncWithBlog() {
-            // Copy posts to main blog storage
+            // Copy posts to main blog storage, sobrescrevendo completamente
             localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+            // Marcar como sincronizado
+            localStorage.setItem('blogSynced', 'true');
             showToast('🔄 Sincronização com blog principal realizada!');
         }
 
