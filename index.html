@@ -1,1 +1,975 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - SocializaPet</title>
+    <link rel="icon" type="image/png" href="socializapet-logo.png">
+    <style>
+        :root {
+            --primary: #F28DB2;
+            --secondary: #0597F2;
+            --dark: #333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            color: var(--dark);
+        }
+
+        /* Login Screen */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .login-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .login-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(242, 141, 178, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 10px;
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(242, 141, 178, 0.3);
+        }
+
+        .error-message {
+            background: #fee;
+            color: var(--danger);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        /* Admin Dashboard */
+        .admin-container {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .admin-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .admin-title h1 {
+            color: var(--dark);
+            font-size: 1.8rem;
+        }
+
+        .admin-title .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .posts-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .posts-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .posts-header h2 {
+            color: var(--dark);
+        }
+
+        .search-box {
+            padding: 0.8rem 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .posts-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .post-card {
+            border: 2px solid #eee;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .post-title {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .post-category {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .post-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .post-excerpt {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .modal-title {
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background: #eee;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .toast {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--success);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 1rem;
+            }
+
+            .admin-header {
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .admin-title {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .posts-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .post-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .post-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="login-logo">🐾</div>
+            <h1 class="login-title">Socializa<span style="color: var(--primary);">Pet</span></h1>
+            <p class="login-subtitle">Painel Administrativo do Blog</p>
+            
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                
+                <button type="submit" class="btn-login">🚀 Acessar Painel</button>
+            </form>
+            
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-container" id="adminContainer">
+        <!-- Header -->
+        <div class="admin-header">
+            <div class="admin-title">
+                <div class="logo">🐾</div>
+                <div>
+                    <h1>Painel Admin - Socializa<span style="color: var(--primary);">Pet</span></h1>
+                    <p>Gerencie o conteúdo do blog</p>
+                </div>
+            </div>
+            
+            <div class="admin-actions">
+                <button class="btn btn-primary" onclick="openNewPostModal()">
+                    ✍️ Nova Postagem
+                </button>
+                <button class="btn btn-success" onclick="syncWithBlog()">
+                    🔄 Sincronizar Blog
+                </button>
+                <button class="btn btn-secondary" onclick="exportData()">
+                    📤 Exportar Dados
+                </button>
+                <button class="btn btn-danger" onclick="logout()">
+                    🚪 Sair
+                </button>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-number" id="totalPosts">0</div>
+                <div class="stat-label">Total de Posts</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">🐕</div>
+                <div class="stat-number" id="guiaRacasPosts">0</div>
+                <div class="stat-label">Guia de Raças</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-number" id="thisWeekPosts">0</div>
+                <div class="stat-label">Esta Semana</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">🏷️</div>
+                <div class="stat-number" id="totalCategories">0</div>
+                <div class="stat-label">Categorias</div>
+            </div>
+        </div>
+
+        <!-- Posts Management -->
+        <div class="posts-container">
+            <div class="posts-header">
+                <h2>📚 Gerenciar Posts</h2>
+                <input type="text" class="search-box" placeholder="🔍 Buscar posts..." 
+                       onkeyup="filterPosts(this.value)">
+            </div>
+            
+            <div class="posts-grid" id="postsGrid">
+                <!-- Posts will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- New/Edit Post Modal -->
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">✍️ Nova Postagem</h2>
+                <button class="close-btn" onclick="closePostModal()">✕</button>
+            </div>
+            
+            <form onsubmit="savePost(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postTitle">Título</label>
+                        <input type="text" id="postTitle" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postCategory">Categoria</label>
+                        <select id="postCategory" class="form-control" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Guia de Raças">🐕 Guia de Raças</option>
+                            <option value="Cuidados">💊 Cuidados</option>
+                            <option value="Treinamento">🎾 Treinamento</option>
+                            <option value="Alimentação">🍖 Alimentação</option>
+                            <option value="Saúde">🏥 Saúde</option>
+                            <option value="Comportamento">🧠 Comportamento</option>
+                            <option value="Adoção">❤️ Adoção</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postImage">URL da Imagem</label>
+                    <input type="url" id="postImage" class="form-control" 
+                           placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+                
+                <div class="form-group">
+                    <label for="postExcerpt">Resumo</label>
+                    <textarea id="postExcerpt" class="form-control" 
+                              placeholder="Breve descrição do post..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postContent">Conteúdo Completo</label>
+                    <textarea id="postContent" class="form-control" 
+                              placeholder="Conteúdo detalhado do post..." required 
+                              style="min-height: 200px;"></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closePostModal()">
+                        ❌ Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        💾 Salvar Post
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Admin credentials
+        const ADMIN_CREDENTIALS = {
+            username: "multiPerfil2024",
+            password: "Gig@Byte2012"
+        };
+
+        // Blog posts storage
+        let blogPosts = JSON.parse(localStorage.getItem('socializaPetPosts')) || [];
+        let editingPostId = null;
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAutoLogin();
+            loadPosts();
+        });
+
+        // Auto login check
+        function checkAutoLogin() {
+            const isLoggedIn = sessionStorage.getItem('adminLoggedIn');
+            if (isLoggedIn === 'true') {
+                showAdminPanel();
+            }
+        }
+
+        // Handle login
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                sessionStorage.setItem('adminLoggedIn', 'true');
+                showAdminPanel();
+                showToast('✅ Login realizado com sucesso!', 'success');
+            } else {
+                showError('❌ Usuário ou senha incorretos!');
+            }
+        }
+
+        // Show admin panel
+        function showAdminPanel() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('adminContainer').style.display = 'block';
+            updateStats();
+            displayPosts();
+        }
+
+        // Logout
+        function logout() {
+            if (confirm('Tem certeza que deseja sair?')) {
+                sessionStorage.removeItem('adminLoggedIn');
+                document.getElementById('loginContainer').style.display = 'flex';
+                document.getElementById('adminContainer').style.display = 'none';
+                // Clear form
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+                showToast('👋 Logout realizado com sucesso!', 'info');
+            }
+        }
+
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            
+            if (type === 'success') toast.style.background = '#28a745';
+            if (type === 'error') toast.style.background = '#dc3545';
+            if (type === 'info') toast.style.background = '#17a2b8';
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => toast.classList.add('show'), 100);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => document.body.removeChild(toast), 300);
+            }, 3000);
+        }
+
+        // Load posts from localStorage
+        function loadPosts() {
+            // Try to load from both storages for compatibility
+            const mainBlogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+            const adminPosts = JSON.parse(localStorage.getItem('socializaPetPosts')) || [];
+            
+            // Merge and deduplicate
+            const allPosts = [...adminPosts, ...mainBlogPosts];
+            const uniquePosts = allPosts.filter((post, index, self) => 
+                index === self.findIndex(p => p.id === post.id)
+            );
+            
+            blogPosts = uniquePosts;
+            
+            // Save merged posts
+            localStorage.setItem('socializaPetPosts', JSON.stringify(blogPosts));
+            updateStats();
+        }
+
+        // Update statistics
+        function updateStats() {
+            document.getElementById('totalPosts').textContent = blogPosts.length;
+            document.getElementById('guiaRacasPosts').textContent = 
+                blogPosts.filter(post => post.category === 'Guia de Raças').length;
+            
+            // Posts this week
+            const oneWeekAgo = new Date();
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+            const thisWeekPosts = blogPosts.filter(post => {
+                const postDate = new Date(post.date.split('/').reverse().join('-'));
+                return postDate >= oneWeekAgo;
+            }).length;
+            document.getElementById('thisWeekPosts').textContent = thisWeekPosts;
+            
+            // Unique categories
+            const categories = [...new Set(blogPosts.map(post => post.category))];
+            document.getElementById('totalCategories').textContent = categories.length;
+        }
+
+        // Display posts
+        function displayPosts(postsToShow = blogPosts) {
+            const postsGrid = document.getElementById('postsGrid');
+            
+            if (postsToShow.length === 0) {
+                postsGrid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📝</div>
+                        <h3>Nenhum post encontrado</h3>
+                        <p>Crie sua primeira postagem clicando no botão "Nova Postagem"</p>
+                    </div>
+                `;
+                return;
+            }
+
+            postsGrid.innerHTML = postsToShow.map(post => `
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-title">${post.title}</div>
+                        <div class="post-actions">
+                            <button class="btn btn-primary btn-sm" onclick="editPost(${post.id})">
+                                ✏️ Editar
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="deletePost(${post.id})">
+                                🗑️ Excluir
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="post-meta">
+                        <span class="post-category">${post.category}</span>
+                        <span class="post-date">📅 ${post.date}</span>
+                        <span class="post-date">👤 ${post.author}</span>
+                    </div>
+                    
+                    <div class="post-excerpt">${post.excerpt}</div>
+                </div>
+            `).join('');
+        }
+
+        // Filter posts
+        function filterPosts(searchTerm) {
+            const filtered = blogPosts.filter(post => 
+                post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                post.category.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            displayPosts(filtered);
+        }
+
+        // Open new post modal
+        function openNewPostModal() {
+            editingPostId = null;
+            document.getElementById('modalTitle').textContent = '✍️ Nova Postagem';
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postCategory').value = '';
+            document.getElementById('postImage').value = '';
+            document.getElementById('postExcerpt').value = '';
+            document.getElementById('postContent').value = '';
+            document.getElementById('postModal').style.display = 'flex';
+        }
+
+        // Edit post
+        function editPost(id) {
+            const post = blogPosts.find(p => p.id === id);
+            if (!post) return;
+            
+            editingPostId = id;
+            document.getElementById('modalTitle').textContent = '✏️ Editar Postagem';
+            document.getElementById('postTitle').value = post.title;
+            document.getElementById('postCategory').value = post.category;
+            document.getElementById('postImage').value = post.image || '';
+            document.getElementById('postExcerpt').value = post.excerpt;
+            document.getElementById('postContent').value = post.content;
+            document.getElementById('postModal').style.display = 'flex';
+        }
+
+        // Close post modal
+        function closePostModal() {
+            document.getElementById('postModal').style.display = 'none';
+            editingPostId = null;
+        }
+
+        // Save post
+        function savePost(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('postTitle').value;
+            const category = document.getElementById('postCategory').value;
+            const image = document.getElementById('postImage').value || `https://picsum.photos/400/250?random=${Date.now()}`;
+            const excerpt = document.getElementById('postExcerpt').value;
+            const content = document.getElementById('postContent').value;
+            
+            if (editingPostId) {
+                // Update existing post
+                const postIndex = blogPosts.findIndex(p => p.id === editingPostId);
+                if (postIndex !== -1) {
+                    blogPosts[postIndex] = {
+                        ...blogPosts[postIndex],
+                        title,
+                        category,
+                        image,
+                        excerpt,
+                        content
+                    };
+                    showToast('✅ Post atualizado com sucesso!');
+                }
+            } else {
+                // Create new post
+                const newPost = {
+                    id: Date.now(),
+                    title,
+                    category,
+                    image,
+                    excerpt,
+                    content,
+                    date: new Date().toLocaleDateString('pt-BR'),
+                    author: 'Admin SocializaPet'
+                };
+                blogPosts.unshift(newPost);
+                showToast('✅ Post criado com sucesso!');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('socializaPetPosts', JSON.stringify(blogPosts));
+            
+            // Update displays
+            updateStats();
+            displayPosts();
+            closePostModal();
+        }
+
+        // Delete post
+        function deletePost(id) {
+            const post = blogPosts.find(p => p.id === id);
+            if (!post) return;
+            
+            if (confirm(`Tem certeza que deseja excluir o post "${post.title}"?`)) {
+                blogPosts = blogPosts.filter(p => p.id !== id);
+                localStorage.setItem('socializaPetPosts', JSON.stringify(blogPosts));
+                updateStats();
+                displayPosts();
+                showToast('🗑️ Post excluído com sucesso!');
+            }
+        }
+
+        // Sync with main blog
+        function syncWithBlog() {
+            // Copy posts to main blog storage
+            localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+            showToast('🔄 Sincronização com blog principal realizada!');
+        }
+
+        // Export data
+        function exportData() {
+            const dataStr = JSON.stringify(blogPosts, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `socializapet-posts-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast('📤 Dados exportados com sucesso!');
+        }
+
+        // Handle modal click outside
+        document.getElementById('postModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePostModal();
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePostModal();
+            }
+            if (e.ctrlKey && e.key === 'n') {
+                e.preventDefault();
+                openNewPostModal();
+            }
+        });
+    </script>
+</body>
+</html>
