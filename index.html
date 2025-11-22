@@ -112,6 +112,466 @@
             border-left: 3px solid var(--secondary);
         }
 
+        /* Orders Management */
+        .orders-container {
+            padding: 2rem;
+        }
+
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .orders-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .orders-stats .stat-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .orders-stats .stat-item:hover {
+            border-color: var(--primary);
+        }
+
+        .orders-stats .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .orders-stats .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .orders-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .orders-filters select,
+        .orders-filters input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: var(--white);
+        }
+
+        .orders-filters select:focus,
+        .orders-filters input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .orders-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .order-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .order-id {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .order-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .order-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-paid { background: #d4edda; color: #155724; }
+        .status-shipped { background: #cce7ff; color: #004085; }
+        .status-delivered { background: #d1ecf1; color: #0c5460; }
+        .status-cancelled { background: #f8d7da; color: #721c24; }
+
+        .order-customer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .customer-info strong {
+            color: var(--secondary);
+        }
+
+        .order-items {
+            margin-bottom: 1rem;
+        }
+
+        .order-items h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .items-list {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .item-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .order-totals {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .payment-info {
+            font-size: 0.9rem;
+        }
+
+        .payment-method {
+            padding: 2px 8px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .order-total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-order {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view { background: #17a2b8; color: white; }
+        .btn-update { background: #28a745; color: white; }
+        .btn-delete { background: #dc3545; color: white; }
+        .btn-invoice { background: #6f42c1; color: white; }
+
+        .btn-order:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .empty-orders {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-orders h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Orders Management */
+        .orders-container {
+            padding: 2rem;
+        }
+
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .orders-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .orders-stats .stat-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .orders-stats .stat-item:hover {
+            border-color: var(--primary);
+        }
+
+        .orders-stats .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .orders-stats .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .orders-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .orders-filters select,
+        .orders-filters input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: var(--white);
+        }
+
+        .orders-filters select:focus,
+        .orders-filters input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .orders-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .order-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .order-id {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .order-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .order-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-paid { background: #d4edda; color: #155724; }
+        .status-shipped { background: #cce7ff; color: #004085; }
+        .status-delivered { background: #d1ecf1; color: #0c5460; }
+        .status-cancelled { background: #f8d7da; color: #721c24; }
+
+        .order-customer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .customer-info strong {
+            color: var(--secondary);
+        }
+
+        .order-items {
+            margin-bottom: 1rem;
+        }
+
+        .order-items h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .items-list {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .item-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .order-totals {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .payment-info {
+            font-size: 0.9rem;
+        }
+
+        .payment-method {
+            padding: 2px 8px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .order-total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-order {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view { background: #17a2b8; color: white; }
+        .btn-update { background: #28a745; color: white; }
+        .btn-delete { background: #dc3545; color: white; }
+        .btn-invoice { background: #6f42c1; color: white; }
+
+        .btn-order:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .empty-orders {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-orders h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
         /* Help Section */
         .help-section {
             margin: 2rem 0;
@@ -148,6 +608,23 @@
             border: 1px solid var(--primary);
             font-size: 0.85rem;
             margin: 0;
+        }
+
+        /* Favicon Preview */
+        .favicon-preview {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: rgba(0,0,0,0.02);
+            border-radius: 6px;
+            border: 1px dashed #ddd;
+        }
+
+        .favicon-preview img {
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .btn-login {
@@ -818,6 +1295,34 @@
             .settings-grid {
                 grid-template-columns: 1fr;
             }
+
+            .orders-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .orders-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .orders-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .order-customer {
+                grid-template-columns: 1fr;
+            }
+
+            .order-totals {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .order-actions {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -859,6 +1364,34 @@
                 font-size: 0.75rem;
                 padding: 4px 8px;
             }
+
+            .orders-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .orders-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .orders-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .order-customer {
+                grid-template-columns: 1fr;
+            }
+
+            .order-totals {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .order-actions {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -870,19 +1403,19 @@
             <h1 class="login-title">Socializa<span style="color: var(--primary);">Pet</span></h1>
             <p class="login-subtitle">Painel Administrativo do Blog</p>
             
-            <form onsubmit="handleLogin(event)">
+            <div class="login-form">
                 <div class="form-group">
                     <label for="username">Usuário</label>
-                    <input type="text" id="username" class="form-control" required>
+                    <input type="text" id="username" class="form-control" required onkeypress="if(event.key==='Enter') doLogin()">
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" class="form-control" required>
+                    <input type="password" id="password" class="form-control" required onkeypress="if(event.key==='Enter') doLogin()">
                 </div>
                 
-                <button type="submit" class="btn-login">🚀 Acessar Painel</button>
-            </form>
+                <button type="button" class="btn-login" onclick="doLogin()">🚀 Acessar Painel</button>
+            </div>
             
             <div class="error-message" id="errorMessage"></div>
         </div>
@@ -947,6 +1480,12 @@
             </div>
             
             <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-number" id="totalOrders">0</div>
+                <div class="stat-label">Pedidos</div>
+            </div>
+            
+            <div class="stat-card">
                 <div class="stat-icon">📸</div>
                 <div class="stat-number" id="totalGallery">0</div>
                 <div class="stat-label">Galeria</div>
@@ -968,6 +1507,9 @@
                 </div>
                 <div class="guide-item">
                     <strong>📸 Galeria:</strong> 500x400px (5:4) - Para fotos em geral
+                </div>
+                <div class="guide-item">
+                    <strong>🖼️ Favicon:</strong> 64x64px ou 32x32px - Ícone que aparece na aba do navegador
                 </div>
             </div>
             <p class="guide-note">
@@ -1003,6 +1545,108 @@
                 
                 <div class="banner-grid" id="bannersGrid">
                     <!-- Banners will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Management -->
+        <div class="tab-content" id="ordersTab">
+            <div class="orders-container">
+                <div class="orders-header">
+                    <h2>📦 Gerenciar Pedidos</h2>
+                    <div class="orders-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="pendingOrders">0</span>
+                            <span class="stat-label">Pendentes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completedOrders">0</span>
+                            <span class="stat-label">Concluídos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalRevenue">R$ 0,00</span>
+                            <span class="stat-label">Faturamento</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="orders-filters">
+                    <select id="statusFilter" onchange="filterOrders()">
+                        <option value="all">Todos os Status</option>
+                        <option value="pending">Pendente</option>
+                        <option value="paid">Pago</option>
+                        <option value="shipped">Enviado</option>
+                        <option value="delivered">Entregue</option>
+                        <option value="cancelled">Cancelado</option>
+                    </select>
+                    
+                    <select id="paymentFilter" onchange="filterOrders()">
+                        <option value="all">Todas as Formas</option>
+                        <option value="mercadopago">Mercado Pago</option>
+                        <option value="pix">PIX</option>
+                        <option value="whatsapp">WhatsApp</option>
+                    </select>
+                    
+                    <input type="date" id="dateFilter" onchange="filterOrders()" title="Filtrar por data">
+                    
+                    <button class="btn btn-primary" onclick="exportOrders()">
+                        📊 Exportar Pedidos
+                    </button>
+                </div>
+                
+                <div class="orders-grid" id="ordersGrid">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Management -->
+        <div class="tab-content" id="ordersTab">
+            <div class="orders-container">
+                <div class="orders-header">
+                    <h2>📦 Gerenciar Pedidos</h2>
+                    <div class="orders-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="pendingOrders">0</span>
+                            <span class="stat-label">Pendentes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completedOrders">0</span>
+                            <span class="stat-label">Concluídos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalRevenue">R$ 0,00</span>
+                            <span class="stat-label">Faturamento</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="orders-filters">
+                    <select id="statusFilter" onchange="filterOrders()">
+                        <option value="all">Todos os Status</option>
+                        <option value="pending">Pendente</option>
+                        <option value="paid">Pago</option>
+                        <option value="shipped">Enviado</option>
+                        <option value="delivered">Entregue</option>
+                        <option value="cancelled">Cancelado</option>
+                    </select>
+                    
+                    <select id="paymentFilter" onchange="filterOrders()">
+                        <option value="all">Todas as Formas</option>
+                        <option value="mercadopago">Mercado Pago</option>
+                        <option value="pix">PIX</option>
+                        <option value="whatsapp">WhatsApp</option>
+                    </select>
+                    
+                    <input type="date" id="dateFilter" onchange="filterOrders()" title="Filtrar por data">
+                    
+                    <button class="btn btn-primary" onclick="exportOrders()">
+                        📊 Exportar Pedidos
+                    </button>
+                </div>
+                
+                <div class="orders-grid" id="ordersGrid">
+                    <!-- Orders will be loaded here -->
                 </div>
             </div>
         </div>
@@ -1124,7 +1768,12 @@
                     </div>
                     <div class="form-group">
                         <label>Favicon URL</label>
-                        <input type="url" class="form-control" id="faviconUrl" placeholder="socializapet-logo.png">
+                        <small class="size-hint">🖼️ Tamanho recomendado: 64x64px ou 32x32px - Formato: PNG, ICO ou JPG</small>
+                        <input type="url" class="form-control" id="faviconUrl" placeholder="Ex: https://i.imgur.com/favicon64x64.png" oninput="updateFaviconPreview(this.value)">
+                        <div class="favicon-preview" style="margin-top: 10px; padding: 10px; background: rgba(0,0,0,0.02); border-radius: 6px; border: 1px dashed #ddd; display: flex; align-items: center; gap: 10px;">
+                            <img id="faviconPreviewImg" src="" alt="Preview" style="width: 32px; height: 32px; border-radius: 4px; border: 1px solid #ddd; display: none;">
+                            <span id="faviconPreviewText" style="font-size: 0.85rem; color: #666;">Nenhum favicon definido</span>
+                        </div>
                     </div>
                     <button class="btn btn-success" onclick="saveSettings('general')">💾 Salvar Configurações</button>
                 </div>
@@ -1279,6 +1928,12 @@
                     <textarea id="productDescription" class="form-control" required placeholder="Descrição detalhada do produto..."></textarea>
                 </div>
                 
+                <div class="form-group">
+                    <label for="productLink">🔗 Link de Compra</label>
+                    <small class="size-hint">💡 Link onde o cliente será direcionado ao clicar em "Comprar" (ex: Shopee, Mercado Livre, etc.)</small>
+                    <input type="url" id="productLink" class="form-control" placeholder="https://shopee.com.br/produto-exemplo">
+                </div>
+                
                 <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
                     <button type="button" class="btn btn-secondary" onclick="closeProductModal()">❌ Cancelar</button>
                     <button type="submit" class="btn btn-success">💾 Salvar Produto</button>
@@ -1366,29 +2021,109 @@
             }
         }
 
-        // Handle login
-        function handleLogin(event) {
-            event.preventDefault();
+        // Handle login (função nova e mais robusta)
+        function doLogin() {
+            const loginBtn = document.querySelector('.btn-login');
+            const originalText = loginBtn.innerHTML;
             
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
-                sessionStorage.setItem('adminLoggedIn', 'true');
-                showAdminPanel();
-                showToast('✅ Login realizado com sucesso!', 'success');
-            } else {
-                showError('❌ Usuário ou senha incorretos!');
+            try {
+                // Mostrar indicador de carregamento
+                loginBtn.innerHTML = '🔄 Entrando...';
+                loginBtn.disabled = true;
+                
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value;
+                
+                console.log('🔐 Tentativa de login:', { username, password: '***' });
+                console.log('🔑 Credenciais esperadas:', { 
+                    username: ADMIN_CREDENTIALS.username, 
+                    password: '***' 
+                });
+                
+                if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                    console.log('✅ Login aprovado!');
+                    loginBtn.innerHTML = '✅ Sucesso!';
+                    
+                    setTimeout(() => {
+                        sessionStorage.setItem('adminLoggedIn', 'true');
+                        showAdminPanel();
+                        showToast('✅ Login realizado com sucesso!', 'success');
+                    }, 500);
+                    
+                } else {
+                    console.log('❌ Login rejeitado!');
+                    loginBtn.innerHTML = originalText;
+                    loginBtn.disabled = false;
+                    showError('❌ Usuário ou senha incorretos!');
+                }
+            } catch (error) {
+                console.error('❌ Erro no processo de login:', error);
+                loginBtn.innerHTML = originalText;
+                loginBtn.disabled = false;
+                showError('❌ Erro interno. Tente novamente.');
             }
+        }
+
+        // Handle login (função antiga mantida para compatibilidade)
+        function handleLogin(event) {
+            if (event && event.preventDefault) {
+                event.preventDefault();
+            }
+            doLogin();
+            return false;
         }
 
         // Show admin panel
         function showAdminPanel() {
-            document.getElementById('loginContainer').style.display = 'none';
-            document.getElementById('adminContainer').style.display = 'block';
-            updateAllStats();
-            displayPosts();
-            loadContentForm();
+            try {
+                console.log('🔄 Iniciando carregamento do painel...');
+                
+                const loginContainer = document.getElementById('loginContainer');
+                const adminContainer = document.getElementById('adminContainer');
+                
+                console.log('📦 Containers encontrados:', { 
+                    login: !!loginContainer, 
+                    admin: !!adminContainer 
+                });
+                
+                if (!loginContainer || !adminContainer) {
+                    throw new Error('Containers não encontrados');
+                }
+                
+                loginContainer.style.display = 'none';
+                adminContainer.style.display = 'block';
+                
+                console.log('🔄 Carregando conteúdos...');
+                
+                // Aguardar um pouco para garantir que DOM está pronto
+                setTimeout(() => {
+                    try {
+                        // Carregar todos os conteúdos
+                        loadAllContent();
+                        
+                        console.log('📊 Atualizando estatísticas...');
+                        
+                        // Atualizar estatísticas após carregar conteúdo
+                        setTimeout(() => {
+                            updateAllStats();
+                        }, 100);
+                        
+                        console.log('📝 Exibindo posts...');
+                        
+                        // Exibir posts por padrão
+                        displayPosts();
+                        
+                        console.log('✅ Painel administrativo carregado com sucesso!');
+                        
+                    } catch (innerError) {
+                        console.error('❌ Erro interno:', innerError);
+                    }
+                }, 200);
+                
+            } catch (error) {
+                console.error('❌ Erro ao carregar painel administrativo:', error);
+                alert('❌ Erro ao carregar painel: ' + error.message + '. Recarregue a página.');
+            }
         }
 
         // Logout
@@ -1715,6 +2450,9 @@
                 case 'products':
                     displayProducts();
                     break;
+                case 'orders':
+                    loadOrders();
+                    break;
                 case 'gallery':
                     displayGallery();
                     break;
@@ -1732,6 +2470,7 @@
             loadPosts();
             loadBanners();
             loadProducts();
+            loadOrders();
             loadGallery();
             loadContent();
             loadSettings();
@@ -1880,10 +2619,25 @@
 
         // =============== STATISTICS UPDATE ===============
         function updateAllStats() {
-            document.getElementById('totalPosts').textContent = blogPosts.length;
-            document.getElementById('totalBanners').textContent = banners.length;
-            document.getElementById('totalProducts').textContent = products.length;
-            document.getElementById('totalGallery').textContent = gallery.length;
+            try {
+                const totalPostsEl = document.getElementById('totalPosts');
+                if (totalPostsEl) totalPostsEl.textContent = blogPosts.length;
+                
+                const totalBannersEl = document.getElementById('totalBanners');
+                if (totalBannersEl) totalBannersEl.textContent = banners.length;
+                
+                const totalProductsEl = document.getElementById('totalProducts');
+                if (totalProductsEl) totalProductsEl.textContent = products.length;
+                
+                const totalOrdersEl = document.getElementById('totalOrders');
+                if (totalOrdersEl) totalOrdersEl.textContent = orders ? orders.length : 0;
+                
+                const totalGalleryEl = document.getElementById('totalGallery');
+                if (totalGalleryEl) totalGalleryEl.textContent = gallery.length;
+                
+            } catch (error) {
+                console.error('Erro ao atualizar estatísticas:', error);
+            }
         }
 
         // =============== BANNER MANAGEMENT ===============
@@ -2028,6 +2782,7 @@
             document.getElementById('productCategory').value = '';
             document.getElementById('productImage').value = '';
             document.getElementById('productDescription').value = '';
+            document.getElementById('productLink').value = '';
             document.getElementById('productModal').style.display = 'flex';
         }
 
@@ -2042,6 +2797,7 @@
             document.getElementById('productCategory').value = product.category;
             document.getElementById('productImage').value = product.image;
             document.getElementById('productDescription').value = product.description;
+            document.getElementById('productLink').value = product.link || '';
             document.getElementById('productModal').style.display = 'flex';
         }
 
@@ -2058,20 +2814,21 @@
             const category = document.getElementById('productCategory').value;
             const image = document.getElementById('productImage').value;
             const description = document.getElementById('productDescription').value;
+            const link = document.getElementById('productLink').value;
             
             if (editingProductId) {
                 const productIndex = products.findIndex(p => p.id === editingProductId);
                 if (productIndex !== -1) {
                     products[productIndex] = {
                         ...products[productIndex],
-                        name, price, category, image, description
+                        name, price, category, image, description, link
                     };
                     showToast('✅ Produto atualizado com sucesso!');
                 }
             } else {
                 const newProduct = {
                     id: Date.now(),
-                    name, price, category, image, description
+                    name, price, category, image, description, link
                 };
                 products.unshift(newProduct);
                 showToast('✅ Produto criado com sucesso!');
@@ -2236,6 +2993,9 @@
             document.getElementById('partners').value = siteSettings.partners || 25;
             document.getElementById('logoUrl').value = siteSettings.logoUrl || '';
             document.getElementById('faviconUrl').value = siteSettings.faviconUrl || '';
+            
+            // Update favicon preview
+            updateFaviconPreview(siteSettings.faviconUrl || '');
         }
 
         function saveSettings(type) {
@@ -2252,12 +3012,589 @@
                 case 'general':
                     siteSettings.logoUrl = document.getElementById('logoUrl').value;
                     siteSettings.faviconUrl = document.getElementById('faviconUrl').value;
+                    
+                    // Apply favicon immediately
+                    if (siteSettings.faviconUrl) {
+                        applySiteFavicon(siteSettings.faviconUrl);
+                    }
                     break;
             }
             
             localStorage.setItem('socializaPetSettings', JSON.stringify(siteSettings));
             showToast('✅ Configurações salvas com sucesso!');
         }
+
+        // =============== ORDERS MANAGEMENT ===============
+        let orders = JSON.parse(localStorage.getItem('socializaPetOrders') || '[]');
+
+        function loadOrders() {
+            displayOrders();
+            updateOrdersStats();
+        }
+
+        function displayOrders(ordersToShow = orders) {
+            const container = document.getElementById('ordersGrid');
+            
+            if (ordersToShow.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-orders">
+                        <h3>📦 Nenhum pedido encontrado</h3>
+                        <p>Os pedidos do e-commerce aparecerão aqui automaticamente.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = ordersToShow.map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">#${order.id}</div>
+                        <div class="order-date">${formatDate(order.date)}</div>
+                        <div class="order-status status-${order.status}">${getStatusLabel(order.status)}</div>
+                    </div>
+                    
+                    <div class="order-customer">
+                        <div class="customer-info">
+                            <strong>👤 Cliente:</strong> ${order.customer.name}<br>
+                            <strong>📧 E-mail:</strong> ${order.customer.email}<br>
+                            <strong>📱 Telefone:</strong> ${order.customer.phone}
+                        </div>
+                        <div class="customer-info">
+                            <strong>📍 Endereço:</strong><br>
+                            ${order.address.address}, ${order.address.number}<br>
+                            ${order.address.neighborhood} - ${order.address.city}/${order.address.state}<br>
+                            CEP: ${order.address.cep}
+                        </div>
+                    </div>
+                    
+                    <div class="order-items">
+                        <h4>📦 Itens do Pedido:</h4>
+                        <div class="items-list">
+                            ${order.items.map(item => `
+                                <div class="item-row">
+                                    <span>${item.title} (${item.quantity}x)</span>
+                                    <span>R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="order-totals">
+                        <div class="payment-info">
+                            <span class="payment-method">${getPaymentLabel(order.payment)}</span>
+                            ${order.shipping ? `<br><small>🚚 Frete: R$ ${order.shipping.price.toFixed(2).replace('.', ',')}</small>` : ''}
+                        </div>
+                        <div class="order-total">Total: R$ ${order.total.toFixed(2).replace('.', ',')}</div>
+                    </div>
+                    
+                    <div class="order-actions">
+                        <button class="btn-order btn-view" onclick="viewOrder('${order.id}')">👁️ Ver</button>
+                        <button class="btn-order btn-update" onclick="updateOrderStatus('${order.id}')">✏️ Status</button>
+                        <button class="btn-order btn-invoice" onclick="generateInvoice('${order.id}')">📄 Fatura</button>
+                        <button class="btn-order btn-delete" onclick="deleteOrder('${order.id}')">🗑️ Excluir</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateOrdersStats() {
+            const pendingCount = orders.filter(order => order.status === 'pending').length;
+            const completedCount = orders.filter(order => order.status === 'delivered').length;
+            const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
+
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('pendingOrders').textContent = pendingCount;
+            document.getElementById('completedOrders').textContent = completedCount;
+            document.getElementById('totalRevenue').textContent = `R$ ${totalRevenue.toFixed(2).replace('.', ',')}`;
+        }
+
+        function filterOrders() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const paymentFilter = document.getElementById('paymentFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+
+            let filteredOrders = orders;
+
+            if (statusFilter !== 'all') {
+                filteredOrders = filteredOrders.filter(order => order.status === statusFilter);
+            }
+
+            if (paymentFilter !== 'all') {
+                filteredOrders = filteredOrders.filter(order => order.payment === paymentFilter);
+            }
+
+            if (dateFilter) {
+                filteredOrders = filteredOrders.filter(order => {
+                    const orderDate = new Date(order.date).toISOString().split('T')[0];
+                    return orderDate === dateFilter;
+                });
+            }
+
+            displayOrders(filteredOrders);
+        }
+
+        function getStatusLabel(status) {
+            const labels = {
+                'pending': 'Pendente',
+                'paid': 'Pago',
+                'shipped': 'Enviado',
+                'delivered': 'Entregue',
+                'cancelled': 'Cancelado'
+            };
+            return labels[status] || status;
+        }
+
+        function getPaymentLabel(payment) {
+            const labels = {
+                'mercadopago': 'Mercado Pago',
+                'pix': 'PIX',
+                'whatsapp': 'WhatsApp'
+            };
+            return labels[payment] || payment;
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleString('pt-BR');
+        }
+
+        function viewOrder(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            alert(`📦 DETALHES DO PEDIDO #${order.id}\n\n` +
+                `Cliente: ${order.customer.name}\n` +
+                `E-mail: ${order.customer.email}\n` +
+                `Telefone: ${order.customer.phone}\n` +
+                `CPF: ${order.customer.cpf}\n\n` +
+                `Endereço: ${order.address.address}, ${order.address.number}\n` +
+                `${order.address.neighborhood} - ${order.address.city}/${order.address.state}\n` +
+                `CEP: ${order.address.cep}\n\n` +
+                `Itens:\n${order.items.map(item => `- ${item.title} (${item.quantity}x) - R$ ${(item.price * item.quantity).toFixed(2)}`).join('\n')}\n\n` +
+                `Pagamento: ${getPaymentLabel(order.payment)}\n` +
+                `Total: R$ ${order.total.toFixed(2)}\n` +
+                `Status: ${getStatusLabel(order.status)}`
+            );
+        }
+
+        function updateOrderStatus(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            const newStatus = prompt(`Status atual: ${getStatusLabel(order.status)}\n\nNovo status:\n1 - Pendente\n2 - Pago\n3 - Enviado\n4 - Entregue\n5 - Cancelado\n\nDigite o número:`);
+
+            const statusMap = {
+                '1': 'pending',
+                '2': 'paid',
+                '3': 'shipped',
+                '4': 'delivered',
+                '5': 'cancelled'
+            };
+
+            if (statusMap[newStatus]) {
+                order.status = statusMap[newStatus];
+                localStorage.setItem('socializaPetOrders', JSON.stringify(orders));
+                loadOrders();
+                showToast(`✅ Status do pedido #${orderId} atualizado!`);
+            }
+        }
+
+        function generateInvoice(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            let invoice = `📄 FATURA - SOCIALIZAPET\n`;
+            invoice += `=====================================\n\n`;
+            invoice += `Pedido: #${order.id}\n`;
+            invoice += `Data: ${formatDate(order.date)}\n\n`;
+            invoice += `CLIENTE:\n`;
+            invoice += `Nome: ${order.customer.name}\n`;
+            invoice += `E-mail: ${order.customer.email}\n`;
+            invoice += `Telefone: ${order.customer.phone}\n`;
+            invoice += `CPF: ${order.customer.cpf}\n\n`;
+            invoice += `ENDEREÇO DE ENTREGA:\n`;
+            invoice += `${order.address.address}, ${order.address.number}\n`;
+            invoice += `${order.address.neighborhood}\n`;
+            invoice += `${order.address.city} - ${order.address.state}\n`;
+            invoice += `CEP: ${order.address.cep}\n\n`;
+            invoice += `ITENS:\n`;
+            invoice += `-------------------------------------\n`;
+            
+            let subtotal = 0;
+            order.items.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                invoice += `${item.title}\n`;
+                invoice += `Qtd: ${item.quantity} x R$ ${item.price.toFixed(2)} = R$ ${itemTotal.toFixed(2)}\n\n`;
+            });
+            
+            invoice += `-------------------------------------\n`;
+            invoice += `Subtotal: R$ ${subtotal.toFixed(2)}\n`;
+            if (order.shipping) {
+                invoice += `Frete: R$ ${order.shipping.price.toFixed(2)}\n`;
+            }
+            invoice += `TOTAL: R$ ${order.total.toFixed(2)}\n\n`;
+            invoice += `Forma de Pagamento: ${getPaymentLabel(order.payment)}\n`;
+            invoice += `Status: ${getStatusLabel(order.status)}\n\n`;
+            invoice += `=====================================\n`;
+            invoice += `SocializaPet - Amor em cada produto!`;
+
+            // Copiar para área de transferência
+            navigator.clipboard.writeText(invoice).then(() => {
+                showToast('📄 Fatura copiada para a área de transferência!');
+            });
+        }
+
+        function deleteOrder(orderId) {
+            if (confirm(`Tem certeza que deseja excluir o pedido #${orderId}?`)) {
+                orders = orders.filter(o => o.id !== orderId);
+                localStorage.setItem('socializaPetOrders', JSON.stringify(orders));
+                loadOrders();
+                showToast(`🗑️ Pedido #${orderId} excluído!`);
+            }
+        }
+
+        function exportOrders() {
+            if (orders.length === 0) {
+                alert('📦 Nenhum pedido para exportar!');
+                return;
+            }
+
+            let csvContent = 'Pedido,Data,Cliente,E-mail,Telefone,Total,Status,Pagamento\n';
+            
+            orders.forEach(order => {
+                csvContent += `#${order.id},${formatDate(order.date)},${order.customer.name},${order.customer.email},${order.customer.phone},R$ ${order.total.toFixed(2)},${getStatusLabel(order.status)},${getPaymentLabel(order.payment)}\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('hidden', '');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `pedidos_socializapet_${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            showToast('📊 Relatório de pedidos exportado!');
+        }
+
+        function displayOrders(ordersToShow = orders) {
+            const container = document.getElementById('ordersGrid');
+            
+            if (ordersToShow.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-orders">
+                        <h3>📦 Nenhum pedido encontrado</h3>
+                        <p>Os pedidos do e-commerce aparecerão aqui automaticamente.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = ordersToShow.map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">#${order.id}</div>
+                        <div class="order-date">${formatDate(order.date)}</div>
+                        <div class="order-status status-${order.status}">${getStatusLabel(order.status)}</div>
+                    </div>
+                    
+                    <div class="order-customer">
+                        <div class="customer-info">
+                            <strong>👤 Cliente:</strong> ${order.customer.name}<br>
+                            <strong>📧 E-mail:</strong> ${order.customer.email}<br>
+                            <strong>📱 Telefone:</strong> ${order.customer.phone}
+                        </div>
+                        <div class="customer-info">
+                            <strong>📍 Endereço:</strong><br>
+                            ${order.address.address}, ${order.address.number}<br>
+                            ${order.address.neighborhood} - ${order.address.city}/${order.address.state}<br>
+                            CEP: ${order.address.cep}
+                        </div>
+                    </div>
+                    
+                    <div class="order-items">
+                        <h4>📦 Itens do Pedido:</h4>
+                        <div class="items-list">
+                            ${order.items.map(item => `
+                                <div class="item-row">
+                                    <span>${item.title} (${item.quantity}x)</span>
+                                    <span>R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="order-totals">
+                        <div class="payment-info">
+                            <span class="payment-method">${getPaymentLabel(order.payment)}</span>
+                            ${order.shipping ? `<br><small>🚚 Frete: R$ ${order.shipping.price.toFixed(2).replace('.', ',')}</small>` : ''}
+                        </div>
+                        <div class="order-total">Total: R$ ${order.total.toFixed(2).replace('.', ',')}</div>
+                    </div>
+                    
+                    <div class="order-actions">
+                        <button class="btn-order btn-view" onclick="viewOrder('${order.id}')">👁️ Ver</button>
+                        <button class="btn-order btn-update" onclick="updateOrderStatus('${order.id}')">✏️ Status</button>
+                        <button class="btn-order btn-invoice" onclick="generateInvoice('${order.id}')">📄 Fatura</button>
+                        <button class="btn-order btn-delete" onclick="deleteOrder('${order.id}')">🗑️ Excluir</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateOrdersStats() {
+            const pendingCount = orders.filter(order => order.status === 'pending').length;
+            const completedCount = orders.filter(order => order.status === 'delivered').length;
+            const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
+
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('pendingOrders').textContent = pendingCount;
+            document.getElementById('completedOrders').textContent = completedCount;
+            document.getElementById('totalRevenue').textContent = `R$ ${totalRevenue.toFixed(2).replace('.', ',')}`;
+        }
+
+        function filterOrders() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const paymentFilter = document.getElementById('paymentFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+
+            let filteredOrders = orders;
+
+            if (statusFilter !== 'all') {
+                filteredOrders = filteredOrders.filter(order => order.status === statusFilter);
+            }
+
+            if (paymentFilter !== 'all') {
+                filteredOrders = filteredOrders.filter(order => order.payment === paymentFilter);
+            }
+
+            if (dateFilter) {
+                filteredOrders = filteredOrders.filter(order => {
+                    const orderDate = new Date(order.date).toISOString().split('T')[0];
+                    return orderDate === dateFilter;
+                });
+            }
+
+            displayOrders(filteredOrders);
+        }
+
+        function getStatusLabel(status) {
+            const labels = {
+                'pending': 'Pendente',
+                'paid': 'Pago',
+                'shipped': 'Enviado',
+                'delivered': 'Entregue',
+                'cancelled': 'Cancelado'
+            };
+            return labels[status] || status;
+        }
+
+        function getPaymentLabel(payment) {
+            const labels = {
+                'mercadopago': 'Mercado Pago',
+                'pix': 'PIX',
+                'whatsapp': 'WhatsApp'
+            };
+            return labels[payment] || payment;
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleString('pt-BR');
+        }
+
+        function viewOrder(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            alert(`📦 DETALHES DO PEDIDO #${order.id}\n\n` +
+                `Cliente: ${order.customer.name}\n` +
+                `E-mail: ${order.customer.email}\n` +
+                `Telefone: ${order.customer.phone}\n` +
+                `CPF: ${order.customer.cpf}\n\n` +
+                `Endereço: ${order.address.address}, ${order.address.number}\n` +
+                `${order.address.neighborhood} - ${order.address.city}/${order.address.state}\n` +
+                `CEP: ${order.address.cep}\n\n` +
+                `Itens:\n${order.items.map(item => `- ${item.title} (${item.quantity}x) - R$ ${(item.price * item.quantity).toFixed(2)}`).join('\n')}\n\n` +
+                `Pagamento: ${getPaymentLabel(order.payment)}\n` +
+                `Total: R$ ${order.total.toFixed(2)}\n` +
+                `Status: ${getStatusLabel(order.status)}`
+            );
+        }
+
+        function updateOrderStatus(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            const newStatus = prompt(`Status atual: ${getStatusLabel(order.status)}\n\nNovo status:\n1 - Pendente\n2 - Pago\n3 - Enviado\n4 - Entregue\n5 - Cancelado\n\nDigite o número:`);
+
+            const statusMap = {
+                '1': 'pending',
+                '2': 'paid',
+                '3': 'shipped',
+                '4': 'delivered',
+                '5': 'cancelled'
+            };
+
+            if (statusMap[newStatus]) {
+                order.status = statusMap[newStatus];
+                localStorage.setItem('socializaPetOrders', JSON.stringify(orders));
+                loadOrders();
+                showToast(`✅ Status do pedido #${orderId} atualizado!`);
+            }
+        }
+
+        function generateInvoice(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            let invoice = `📄 FATURA - SOCIALIZAPET\n`;
+            invoice += `=====================================\n\n`;
+            invoice += `Pedido: #${order.id}\n`;
+            invoice += `Data: ${formatDate(order.date)}\n\n`;
+            invoice += `CLIENTE:\n`;
+            invoice += `Nome: ${order.customer.name}\n`;
+            invoice += `E-mail: ${order.customer.email}\n`;
+            invoice += `Telefone: ${order.customer.phone}\n`;
+            invoice += `CPF: ${order.customer.cpf}\n\n`;
+            invoice += `ENDEREÇO DE ENTREGA:\n`;
+            invoice += `${order.address.address}, ${order.address.number}\n`;
+            invoice += `${order.address.neighborhood}\n`;
+            invoice += `${order.address.city} - ${order.address.state}\n`;
+            invoice += `CEP: ${order.address.cep}\n\n`;
+            invoice += `ITENS:\n`;
+            invoice += `-------------------------------------\n`;
+            
+            let subtotal = 0;
+            order.items.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                invoice += `${item.title}\n`;
+                invoice += `Qtd: ${item.quantity} x R$ ${item.price.toFixed(2)} = R$ ${itemTotal.toFixed(2)}\n\n`;
+            });
+            
+            invoice += `-------------------------------------\n`;
+            invoice += `Subtotal: R$ ${subtotal.toFixed(2)}\n`;
+            if (order.shipping) {
+                invoice += `Frete: R$ ${order.shipping.price.toFixed(2)}\n`;
+            }
+            invoice += `TOTAL: R$ ${order.total.toFixed(2)}\n\n`;
+            invoice += `Forma de Pagamento: ${getPaymentLabel(order.payment)}\n`;
+            invoice += `Status: ${getStatusLabel(order.status)}\n\n`;
+            invoice += `=====================================\n`;
+            invoice += `SocializaPet - Amor em cada produto!`;
+
+            // Copiar para área de transferência
+            navigator.clipboard.writeText(invoice).then(() => {
+                showToast('📄 Fatura copiada para a área de transferência!');
+            });
+        }
+
+        function deleteOrder(orderId) {
+            if (confirm(`Tem certeza que deseja excluir o pedido #${orderId}?`)) {
+                orders = orders.filter(o => o.id !== orderId);
+                localStorage.setItem('socializaPetOrders', JSON.stringify(orders));
+                loadOrders();
+                showToast(`🗑️ Pedido #${orderId} excluído!`);
+            }
+        }
+
+        function exportOrders() {
+            if (orders.length === 0) {
+                alert('📦 Nenhum pedido para exportar!');
+                return;
+            }
+
+            let csvContent = 'Pedido,Data,Cliente,E-mail,Telefone,Total,Status,Pagamento\n';
+            
+            orders.forEach(order => {
+                csvContent += `#${order.id},${formatDate(order.date)},${order.customer.name},${order.customer.email},${order.customer.phone},R$ ${order.total.toFixed(2)},${getStatusLabel(order.status)},${getPaymentLabel(order.payment)}\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('hidden', '');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `pedidos_socializapet_${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            showToast('📊 Relatório de pedidos exportado!');
+        }
+
+        // =============== FAVICON MANAGEMENT ===============
+        function updateFaviconPreview(faviconUrl) {
+            const previewImg = document.getElementById('faviconPreviewImg');
+            const previewText = document.getElementById('faviconPreviewText');
+            
+            if (faviconUrl && faviconUrl.trim() !== '') {
+                previewImg.src = faviconUrl;
+                previewImg.style.display = 'inline-block';
+                previewText.textContent = 'Preview do favicon';
+                previewText.style.color = '#28a745';
+                
+                // Handle image load error
+                previewImg.onerror = function() {
+                    this.style.display = 'none';
+                    previewText.textContent = 'Erro ao carregar favicon';
+                    previewText.style.color = '#dc3545';
+                };
+            } else {
+                previewImg.style.display = 'none';
+                previewText.textContent = 'Nenhum favicon definido';
+                previewText.style.color = '#666';
+            }
+        }
+        
+        function applySiteFavicon(faviconUrl) {
+            if (!faviconUrl || faviconUrl.trim() === '') return;
+            
+            // Remove existing admin favicons
+            const existingFavicons = document.querySelectorAll('link[data-admin-favicon="true"]');
+            existingFavicons.forEach(link => link.remove());
+            
+            // Add new favicon links
+            const head = document.head;
+            
+            // Create multiple favicon sizes for better compatibility
+            const sizes = ['16x16', '32x32', '48x48', '64x64'];
+            sizes.forEach(size => {
+                const favicon = document.createElement('link');
+                favicon.rel = 'icon';
+                favicon.type = 'image/png';
+                favicon.sizes = size;
+                favicon.href = faviconUrl;
+                favicon.setAttribute('data-admin-favicon', 'true');
+                head.appendChild(favicon);
+            });
+            
+            // Apple touch icon
+            const appleTouchIcon = document.createElement('link');
+            appleTouchIcon.rel = 'apple-touch-icon';
+            appleTouchIcon.href = faviconUrl;
+            appleTouchIcon.setAttribute('data-admin-favicon', 'true');
+            head.appendChild(appleTouchIcon);
+            
+            // Shortcut icon (fallback)
+            const shortcutIcon = document.createElement('link');
+            shortcutIcon.rel = 'shortcut icon';
+            shortcutIcon.type = 'image/x-icon';
+            shortcutIcon.href = faviconUrl;
+            shortcutIcon.setAttribute('data-admin-favicon', 'true');
+            head.appendChild(shortcutIcon);
+            
+            console.log('✅ Favicon aplicado:', faviconUrl);
+        }
+        
+        // Global function to apply favicon on all pages
+        window.applySiteFavicon = function() {
+            const settings = JSON.parse(localStorage.getItem('socializaPetSettings') || '{}');
+            if (settings.faviconUrl) {
+                applySiteFavicon(settings.faviconUrl);
+            }
+        };
 
         // =============== ENHANCED SYNC FUNCTION ===============
         function syncWithBlog() {
