@@ -99,6 +99,57 @@
             box-shadow: 0 0 0 3px rgba(242, 141, 178, 0.1);
         }
 
+        /* Size Hints */
+        .size-hint {
+            display: block;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            padding: 6px 12px;
+            background: rgba(5, 151, 242, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        /* Help Section */
+        .help-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            border-radius: 15px;
+            border: 2px solid var(--secondary);
+        }
+
+        .help-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .image-guide {
+            display: grid;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-item {
+            padding: 10px 15px;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .guide-note {
+            background: rgba(242, 141, 178, 0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
         .btn-login {
             width: 100%;
             padding: 1rem;
@@ -769,6 +820,27 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .help-section {
+                margin: 1.5rem 0;
+                padding: 1rem;
+            }
+
+            .help-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .guide-item {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .guide-note {
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
         @media (max-width: 480px) {
             .stats-grid {
                 grid-template-columns: 1fr;
@@ -776,6 +848,16 @@
 
             .gallery-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .help-section {
+                margin: 1rem 0;
+                padding: 0.8rem;
+            }
+
+            .size-hint {
+                font-size: 0.75rem;
+                padding: 4px 8px;
             }
         }
     </style>
@@ -869,6 +951,29 @@
                 <div class="stat-number" id="totalGallery">0</div>
                 <div class="stat-label">Galeria</div>
             </div>
+        </div>
+
+        <!-- Image Size Guidelines -->
+        <div class="help-section">
+            <h3>📏 Guia de Tamanhos de Imagens</h3>
+            <div class="image-guide">
+                <div class="guide-item">
+                    <strong>🎨 Banners:</strong> 1200x400px (3:1) - Para o carrossel principal do site
+                </div>
+                <div class="guide-item">
+                    <strong>📝 Posts:</strong> 800x400px (2:1) - Para artigos do blog
+                </div>
+                <div class="guide-item">
+                    <strong>🛍️ Produtos:</strong> 400x400px (1:1) - Para catálogo da loja
+                </div>
+                <div class="guide-item">
+                    <strong>📸 Galeria:</strong> 500x400px (5:4) - Para fotos em geral
+                </div>
+            </div>
+            <p class="guide-note">
+                💡 <strong>Dica:</strong> Use serviços como Imgur, Google Drive ou GitHub para hospedar suas imagens. 
+                Certifique-se de que as imagens tenham boa qualidade e resolução para melhor resultado visual.
+            </p>
         </div>
 
         <!-- Posts Management -->
@@ -1059,8 +1164,9 @@
                 
                 <div class="form-group">
                     <label for="postImage">URL da Imagem</label>
+                    <small class="size-hint">📏 Tamanho recomendado: 800x400px (2:1) - Mínimo: 600x300px</small>
                     <input type="url" id="postImage" class="form-control" 
-                           placeholder="https://exemplo.com/imagem.jpg">
+                           placeholder="Ex: https://i.imgur.com/abc123.jpg (800x400px)">
                 </div>
                 
                 <div class="form-group">
@@ -1109,7 +1215,8 @@
                 
                 <div class="form-group">
                     <label for="bannerImage">URL da Imagem</label>
-                    <input type="url" id="bannerImage" class="form-control" required placeholder="https://exemplo.com/imagem.jpg">
+                    <small class="size-hint">🎨 Tamanho recomendado: 1200x400px (3:1) - Mínimo: 900x300px</small>
+                    <input type="url" id="bannerImage" class="form-control" required placeholder="Ex: https://i.imgur.com/def456.jpg (1200x400px)">
                 </div>
                 
                 <div class="form-group">
@@ -1162,7 +1269,8 @@
                     
                     <div class="form-group">
                         <label for="productImage">URL da Imagem</label>
-                        <input type="url" id="productImage" class="form-control" required>
+                        <small class="size-hint">🛍️ Tamanho recomendado: 400x400px (1:1) - Mínimo: 300x300px</small>
+                        <input type="url" id="productImage" class="form-control" required placeholder="Ex: https://i.imgur.com/ghi789.jpg (400x400px)">
                     </div>
                 </div>
                 
@@ -1200,7 +1308,8 @@
                 
                 <div class="form-group">
                     <label for="galleryImage">URL da Imagem</label>
-                    <input type="url" id="galleryImage" class="form-control" required placeholder="https://exemplo.com/imagem.jpg">
+                    <small class="size-hint">📸 Tamanho recomendado: 500x400px (5:4) - Mínimo: 400x320px</small>
+                    <input type="url" id="galleryImage" class="form-control" required placeholder="Ex: https://i.imgur.com/jkl012.jpg (500x400px)">
                 </div>
                 
                 <div class="form-group">
