@@ -1056,6 +1056,17 @@
             color: var(--dark);
         }
 
+        .banner-page-tag {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
         .banner-text {
             color: #666;
             font-size: 0.9rem;
@@ -1853,6 +1864,17 @@
             
             <form onsubmit="saveBanner(event)">
                 <div class="form-group">
+                    <label for="bannerPage">📄 Página do Banner</label>
+                    <select id="bannerPage" class="form-control" required>
+                        <option value="">Selecione a página...</option>
+                        <option value="home">🏠 Página Inicial (Home)</option>
+                        <option value="loja">🛍️ Loja</option>
+                        <option value="blog">📝 Blog</option>
+                        <option value="todas">🌟 Todas as Páginas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="bannerTitle">Título do Banner</label>
                     <input type="text" id="bannerTitle" class="form-control" required>
                 </div>
@@ -2531,24 +2553,27 @@
             const initialBanners = [
                 {
                     id: Date.now() + 1,
-                    title: 'Adote um Amigo',
-                    text: 'Encontre seu companheiro perfeito',
+                    page: 'home',
+                    title: 'Bem-vindo à SocializaPet',
+                    text: 'Conectando corações e patas há anos',
                     image: 'https://picsum.photos/800/400?random=1',
-                    link: '#adocao'
+                    link: '#sobre'
                 },
                 {
                     id: Date.now() + 2,
-                    title: 'Produtos de Qualidade',
-                    text: 'Tudo para o seu pet',
+                    page: 'home',
+                    title: 'Produtos Premium',
+                    text: 'Qualidade e carinho para seu pet',
                     image: 'https://picsum.photos/800/400?random=2',
                     link: 'loja.html'
                 },
                 {
                     id: Date.now() + 3,
-                    title: 'Projeto Socializa',
-                    text: 'Juntos fazemos a diferença',
-                    image: 'https://picsum.photos/800/400?random=3',
-                    link: 'projeto-socializa.html'
+                    page: 'loja',
+                    title: 'Nossa Loja Pet',
+                    text: 'Os melhores produtos para seu amigo',
+                    image: 'https://picsum.photos/1200/300?random=3',
+                    link: '#produtos'
                 }
             ];
             
@@ -2617,6 +2642,18 @@
             localStorage.setItem('socializaPetGallery', JSON.stringify(gallery));
         }
 
+        // =============== HELPER FUNCTIONS ===============
+        // Helper function for page labels
+        function getPageLabel(page) {
+            const labels = {
+                'home': '🏠 Home',
+                'loja': '🛍️ Loja', 
+                'blog': '📝 Blog',
+                'todas': '🌟 Todas'
+            };
+            return labels[page] || '🏠 Home';
+        }
+
         // =============== STATISTICS UPDATE ===============
         function updateAllStats() {
             try {
@@ -2660,6 +2697,7 @@
                     <img src="${banner.image}" alt="${banner.title}" class="banner-image" onerror="this.src='https://picsum.photos/300/200?random=1'">
                     <div class="banner-content">
                         <div class="banner-title">${banner.title}</div>
+                        <div class="banner-page-tag">${getPageLabel(banner.page)}</div>
                         <div class="banner-text">${banner.text}</div>
                         <div class="banner-actions">
                             <button class="btn btn-primary btn-sm" onclick="editBanner(${banner.id})">✏️ Editar</button>
@@ -2673,6 +2711,7 @@
         function openBannerModal() {
             editingBannerId = null;
             document.getElementById('bannerModalTitle').textContent = '🖼️ Novo Banner';
+            document.getElementById('bannerPage').value = '';
             document.getElementById('bannerTitle').value = '';
             document.getElementById('bannerText').value = '';
             document.getElementById('bannerImage').value = '';
@@ -2686,6 +2725,7 @@
             
             editingBannerId = id;
             document.getElementById('bannerModalTitle').textContent = '✏️ Editar Banner';
+            document.getElementById('bannerPage').value = banner.page || 'home';
             document.getElementById('bannerTitle').value = banner.title;
             document.getElementById('bannerText').value = banner.text;
             document.getElementById('bannerImage').value = banner.image;
@@ -2701,6 +2741,7 @@
         function saveBanner(event) {
             event.preventDefault();
             
+            const page = document.getElementById('bannerPage').value;
             const title = document.getElementById('bannerTitle').value;
             const text = document.getElementById('bannerText').value;
             const image = document.getElementById('bannerImage').value;
@@ -2711,14 +2752,14 @@
                 if (bannerIndex !== -1) {
                     banners[bannerIndex] = {
                         ...banners[bannerIndex],
-                        title, text, image, link
+                        page, title, text, image, link
                     };
                     showToast('✅ Banner atualizado com sucesso!');
                 }
             } else {
                 const newBanner = {
                     id: Date.now(),
-                    title, text, image, link
+                    page, title, text, image, link
                 };
                 banners.unshift(newBanner);
                 showToast('✅ Banner criado com sucesso!');
