@@ -4,263 +4,571 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SocializaPet - Seu Mundo Pet Conectado e Cheio de Amor!</title>
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="64x64" href="imagens/favicon-64x64.png?v=2">
-    <link rel="icon" type="image/png" sizes="48x48" href="imagens/favicon-48x48.png?v=2">
-    <link rel="icon" type="image/png" sizes="40x40" href="imagens/favicon-40x40.png?v=2">
-    <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-40x40.png?v=2">
-    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-40x40.png?v=2">
-    <link rel="apple-touch-icon" href="imagens/apple-touch-icon.png?v=2">
-    <link rel="shortcut icon" type="image/x-icon" href="imagens/favicon-64x64.png?v=2">
-    <meta name="theme-color" content="#F28DB2">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Fontes do sistema para independência -->
+    <title>Painel Administrativo - SocializaPet</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Fredoka+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo" id="siteLogo">
-                Socializa<span style="color: var(--primary-pink);">Pet</span>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#home">🏠 Home</a></li>
-                    <li><a href="#sobre">💝 Sobre Nós</a></li>
-                    <li><a href="loja.html">🛍️ Loja</a></li>
-                    <li><a href="blog.html">📝 Blog</a></li>
-                    <li><a href="#galeria">📸 Galeria</a></li>
-                    <li><a href="#contato">📞 Contato</a></li>
-                </ul>
-                <button class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-main">
-                <!-- Texto e CTAs -->
-                <div class="hero-text">
-                    <h1 class="hero-title">Seu Mundo Pet Conectado e Cheio de Amor!</h1>
-                    <p class="hero-subtitle">🌟 A plataforma completa que conecta você, seu pet e uma comunidade
-                        apaixonada por bichinhos! 🌟</p>
-
-                    <div class="hero-features">
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">🐶</div>
-                            <span>Produtos premium selecionados especialmente para seu pet</span>
-                        </div>
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">🐱</div>
-                            <span>Dicas especializadas de veterinários e especialistas</span>
-                        </div>
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">🐦</div>
-                            <span>Comunidade ativa de mais de 50.000 pet lovers</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-buttons">
-                        <a href="loja.html" class="hero-btn hero-btn-primary">
-                            🛍️ Explorar Loja
-                        </a>
-                        <a href="blog.html" class="hero-btn hero-btn-secondary">
-                            📖 Ler Dicas
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Visual Interativo -->
-                <div class="hero-visual">
-                    <!-- Banner Vertical -->
-                    <div class="hero-banner-container">
-                        <div class="hero-banner-slider" id="heroBannerSlider">
-                            <!-- Banners serão carregados dinamicamente pelo painel admin -->
-                        </div>
-                        <div class="hero-banner-indicators" id="heroBannerIndicators">
-                            <!-- Indicadores serão gerados dinamicamente -->
-                        </div>
-                    </div>
-
-                    <!-- Estatísticas -->
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">50K+</span>
-                            <span class="hero-stat-label">Soci Lovers</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">30+</span>
-                            <span class="hero-stat-label">Produtos</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">500+</span>
-                            <span class="hero-stat-label">Dicas Exclusivas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="section">
-        <div class="container">
-            <h2 class="section-title">📚 Últimas Dicas do Blog</h2>
-            <div id="homeBlogGrid" class="blog-grid">
-                <!-- Blog posts loading via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="galeria" class="section gallery">
-        <div class="container">
-            <h2 class="section-title">💖 Aqueça o Coração</h2>
-            <!-- Fixed Structure: ID is on the grid container -->
-            <div id="homeGalleryGrid" class="gallery-grid">
-                <!-- Conteúdo carregado via JavaScript -->
-            </div>
-            <div class="gallery-btn">
-                <a href="#" class="btn btn-primary">📸 Ver Galeria Completa</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Promotional Banner -->
-    <section class="promo-banner">
-        <div class="container">
-            <h2>🎉 Mês do Aniversário Pet! 🎂</h2>
-            <p>✨ Até 40% OFF em Toda a Loja - Descontos especiais para mimar seu melhor amigo ✨</p>
-            <a href="#" class="btn btn-white">🎁 Eu Quero!</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="sobre" class="section about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>💝 Quem é a Socializa<span style="color: var(--primary-pink);">Pet</span>?</h2>
-                    <div id="aboutTextContainer">
-                        <p>🌟 Somos muito mais que uma loja de produtos pet. Somos um movimento dedicado ao cuidado
-                            integral: <strong>cuidamos dos seus pets, dos animais carentes e do nosso planeta.</strong>
-                        </p>
-                        <p> Cada compra, cada compartilhamento e cada interação com nosso conteúdo contribui para um
-                            mundo
-                            melhor. Parte de toda nossa receita é destinada ao resgate de animais abandonados e projetos
-                            de
-                            reflorestamento ambiental.</p>
-                        <p>💖 Acreditamos que pequenas ações criam grandes transformações. Quando você escolhe a
-                            SocializaPet, está ajudando a construir um futuro mais verde e solidário para todos os seres
-                            vivos.</p>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <a href="projeto-socializa.html" class="btn btn-primary"
-                            style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease;">
-                            🌍 Conheça Nosso Projeto
-                        </a>
-                    </div>
-                </div>
-                <div class="about-image" id="aboutImageContainer">
-                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=600&fit=crop"
-                        alt="Sobre SocializaPet">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato" class="section">
-        <div class="container">
-            <h2 class="section-title">📞 Fale Conosco</h2>
-            <form class="contact-form" id="contactForm" onsubmit="sendContactToWhatsApp(event)">
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="login-logo" id="adminLoginLogo">🐾</div>
+            <h2 class="login-title">SocializaPet</h2>
+            <p class="login-subtitle">Painel Administrativo</p>
+            <form onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label for="contactName">👤 Nome Completo</label>
-                    <input type="text" id="contactName" name="contactName" placeholder="Digite seu nome..." required>
+                    <label>Usuário</label>
+                    <input type="text" id="username" class="form-control" placeholder="Digite seu usuário" required>
                 </div>
                 <div class="form-group">
-                    <label for="contactPhone">📱 Telefone/WhatsApp</label>
-                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="(11) 99999-9999" required>
+                    <label>Senha</label>
+                    <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-container" id="adminContainer">
+        <div class="admin-header">
+            <div class="admin-title">
+                <div class="logo" id="adminDashboardLogo">🐾</div>
+                <div>
+                    <h1>Painel Administrativo</h1>
+                    <p style="color: #666;">Bem-vindo(a) de volta!</p>
+                </div>
+            </div>
+            <div class="admin-actions">
+                <a href="index.html" class="btn btn-secondary" target="_blank">👁️ Ver Site</a>
+                <button class="btn btn-primary" onclick="syncWithBlog()">🔄 Sincronizar Site</button>
+                <button class="btn btn-success" onclick="exportData()">📥 Backup Dados</button>
+                <button class="btn btn-danger" onclick="logout()">🚪 Sair</button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-number" id="totalPosts">0</div>
+                <div class="stat-label">Total de Posts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🖼️</div>
+                <div class="stat-number" id="totalBanners">0</div>
+                <div class="stat-label">Banners Ativos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🛒</div>
+                <div class="stat-number" id="totalProducts">0</div>
+                <div class="stat-label">Produtos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-number" id="totalOrders">0</div>
+                <div class="stat-label">Pedidos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📸</div>
+                <div class="stat-number" id="totalGallery">0</div>
+                <div class="stat-label">Fotos na Galeria</div>
+            </div>
+        </div>
+
+        <div class="help-section">
+            <h3>📏 Guia de Tamanhos de Imagens</h3>
+            <div class="image-guide">
+                <div class="guide-item">
+                    <strong>🖼️ Banners (Home):</strong> Recomendado 1920x600px | Mínimo 1200x400px (Proporção 3:1)
+                </div>
+                <div class="guide-item">
+                    <strong>📝 Posts do Blog:</strong> Recomendado 800x400px | Mínimo 600x300px (Proporção 2:1)
+                </div>
+                <div class="guide-item">
+                    <strong>🛒 Produtos:</strong> Recomendado 400x400px | Mínimo 300x300px (Proporção 1:1 Quadrado)
+                </div>
+                <div class="guide-item">
+                    <strong>📸 Galeria:</strong> Recomendado 500x400px | Mínimo 400x320px (Proporção 5:4)
+                </div>
+            </div>
+            <p class="guide-note">💡 Dica: Use serviços como Imgur.com ou Postimages.org para hospedar suas imagens e
+                gerar URLs.</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="admin-nav">
+            <button class="nav-tab active" onclick="showTab('posts')" id="postsTab">📝 Posts</button>
+            <button class="nav-tab" onclick="showTab('banners')" id="bannersTab">🖼️ Banners</button>
+            <button class="nav-tab" onclick="showTab('orders')" id="ordersTab">📦 Pedidos</button>
+            <button class="nav-tab" onclick="showTab('products')" id="productsTab">🛒 Produtos</button>
+            <button class="nav-tab" onclick="showTab('gallery')" id="galleryTab">📸 Galeria</button>
+            <button class="nav-tab" onclick="showTab('content')" id="contentTab">📄 Conteúdo</button>
+            <button class="nav-tab" onclick="showTab('settings')" id="settingsTab">⚙️ Configurações</button>
+        </div>
+
+        <!-- Posts Management -->
+        <div class="tab-content active" id="postsContent">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>Gerenciar Postagens</h2>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" class="search-box" placeholder="🔍 Buscar posts..."
+                            onkeyup="filterPosts(this.value)">
+                        <button class="btn btn-primary" onclick="openNewPostModal()">➕ Nova Postagem</button>
+                    </div>
+                </div>
+
+                <div class="posts-grid" id="postsGrid">
+                    <!-- Posts will be generated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Banners Management -->
+        <div class="tab-content" id="bannersContent">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>🖼️ Gerenciar Banners</h2>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-secondary" onclick="testarBannerForcado()"
+                            title="Testar código iframe do Google Drive">🧪 Testar Iframe</button>
+                        <button class="btn btn-primary" onclick="openBannerModal()">➕ Novo Banner</button>
+                    </div>
+                </div>
+
+                <div class="banner-grid" id="bannersGrid">
+                    <!-- Banners will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Management -->
+        <div class="tab-content" id="ordersContent">
+            <div class="orders-container">
+                <div class="orders-header">
+                    <h2>📦 Gerenciar Pedidos</h2>
+                    <div class="orders-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="pendingOrders">0</span>
+                            <span class="stat-label">Pendentes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completedOrders">0</span>
+                            <span class="stat-label">Concluídos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalRevenue">R$ 0,00</span>
+                            <span class="stat-label">Faturamento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="orders-filters">
+                    <select id="statusFilter" onchange="filterOrders()">
+                        <option value="all">Todos os Status</option>
+                        <option value="pending">Pendente</option>
+                        <option value="paid">Pago</option>
+                        <option value="shipped">Enviado</option>
+                        <option value="delivered">Entregue</option>
+                        <option value="cancelled">Cancelado</option>
+                    </select>
+
+                    <select id="paymentFilter" onchange="filterOrders()">
+                        <option value="all">Todas as Formas</option>
+                        <option value="mercadopago">Mercado Pago</option>
+                        <option value="pix">PIX</option>
+                        <option value="whatsapp">WhatsApp</option>
+                    </select>
+
+                    <input type="date" id="dateFilter" onchange="filterOrders()" title="Filtrar por data">
+
+                    <button class="btn btn-primary" onclick="exportOrders()">
+                        📊 Exportar Pedidos
+                    </button>
+                </div>
+
+                <div class="orders-grid" id="ordersGrid">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Management -->
+        <div class="tab-content" id="productsContent">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>🛒 Gerenciar Produtos</h2>
+                    <button class="btn btn-primary" onclick="openProductModal()">
+                        ➕ Novo Produto
+                    </button>
+                </div>
+
+                <div class="product-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Management -->
+        <div class="tab-content" id="galleryContent">
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>📸 Gerenciar Galeria</h2>
+                    <button class="btn btn-primary" onclick="openGalleryModal()">
+                        ➕ Nova Imagem
+                    </button>
+                </div>
+
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Management -->
+        <div class="tab-content" id="contentContent">
+            <div class="content-section">
+                <h3>🏠 Página Principal</h3>
+                <div class="form-group">
+                    <label>Título Principal</label>
+                    <input type="text" class="form-control" id="siteTitle" placeholder="SocializaPet">
                 </div>
                 <div class="form-group">
-                    <label for="contactEmail">📧 E-mail</label>
-                    <input type="email" id="contactEmail" name="contactEmail" placeholder="Digite seu e-mail..."
-                        required>
+                    <label>Subtítulo</label>
+                    <input type="text" class="form-control" id="siteSubtitle"
+                        placeholder="Conectando pets e pessoas com amor">
                 </div>
                 <div class="form-group">
-                    <label for="contactMessage">💬 Mensagem</label>
-                    <textarea id="contactMessage" name="contactMessage"
-                        placeholder="Conte-nos como podemos ajudar você e seu pet... 🐾" required></textarea>
+                    <label>Descrição Sobre Nós</label>
+                    <textarea class="content-editor" id="aboutContent"
+                        placeholder="Conteúdo da seção Sobre Nós..."></textarea>
                 </div>
-                <div class="form-submit">
-                    <button type="submit" class="btn btn-primary">
-                        <span id="submitText">📤 Enviar Mensagem</span>
-                        <span id="loadingText" style="display: none;">⏳ Enviando...</span>
+                <button class="btn btn-success" onclick="saveContent('main')">💾 Salvar Conteúdo Principal</button>
+            </div>
+
+            <div class="content-section">
+                <h3>🌱 Projeto Socializa</h3>
+                <div class="form-group">
+                    <label>Conteúdo do Projeto</label>
+                    <textarea class="content-editor" id="projectContent"
+                        placeholder="Conteúdo da página do projeto..."></textarea>
+                </div>
+                <button class="btn btn-success" onclick="saveContent('project')">💾 Salvar Projeto Socializa</button>
+            </div>
+
+            <div class="content-section">
+                <h3>📱 Informações de Contato</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="text" class="form-control" id="whatsappNumber" placeholder="5511999999999">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="contactEmail"
+                            placeholder="contato@socializapet.com">
+                    </div>
+                </div>
+                <button class="btn btn-success" onclick="saveContent('contact')">💾 Salvar Contato</button>
+            </div>
+        </div>
+
+        <!-- Settings Management -->
+        <div class="tab-content" id="settingsContent">
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>🎨 Cores do Site</h3>
+                    <div class="form-group">
+                        <label>Cor Principal (Rosa)</label>
+                        <input type="color" class="form-control" id="primaryColor" value="#F28DB2">
+                    </div>
+                    <div class="form-group">
+                        <label>Cor Secundária (Azul)</label>
+                        <input type="color" class="form-control" id="secondaryColor" value="#0597F2">
+                    </div>
+                    <button class="btn btn-success" onclick="saveSettings('colors')">💾 Salvar Cores</button>
+                </div>
+
+                <div class="setting-card">
+                    <h3>📊 Estatísticas do Site</h3>
+                    <div class="form-group">
+                        <label>Pets Adotados</label>
+                        <input type="number" class="form-control" id="adoptedPets" value="500">
+                    </div>
+                    <div class="form-group">
+                        <label>Famílias Felizes</label>
+                        <input type="number" class="form-control" id="happyFamilies" value="350">
+                    </div>
+                    <div class="form-group">
+                        <label>Parceiros</label>
+                        <input type="number" class="form-control" id="partners" value="25">
+                    </div>
+                    <button class="btn btn-success" onclick="saveSettings('stats')">💾 Salvar Estatísticas</button>
+                </div>
+
+                <div class="setting-card">
+                    <h3>🔧 Configurações Gerais</h3>
+                    <div class="form-group">
+                        <label>Logo URL</label>
+                        <input type="url" class="form-control" id="logoUrl" placeholder="socializapet-logo.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Favicon URL</label>
+                        <small class="size-hint">🖼️ Tamanho recomendado: 64x64px ou 32x32px - Formato: PNG, ICO ou
+                            JPG</small>
+                        <input type="url" class="form-control" id="faviconUrl"
+                            placeholder="Ex: https://i.imgur.com/favicon64x64.png"
+                            oninput="updateFaviconPreview(this.value)">
+                        <div class="favicon-preview"
+                            style="margin-top: 10px; padding: 10px; background: rgba(0,0,0,0.02); border-radius: 6px; border: 1px dashed #ddd; display: flex; align-items: center; gap: 10px;">
+                            <img id="faviconPreviewImg" src="" alt="Preview"
+                                style="width: 32px; height: 32px; border-radius: 4px; border: 1px solid #ddd; display: none;">
+                            <span id="faviconPreviewText" style="font-size: 0.85rem; color: #666;">Nenhum favicon
+                                definido</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" onclick="saveSettings('general')">💾 Salvar Configurações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New/Edit Post Modal -->
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">✍️ Nova Postagem</h2>
+                <button class="close-btn" onclick="closePostModal()">✕</button>
+            </div>
+
+            <form onsubmit="savePost(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postTitle">Título</label>
+                        <input type="text" id="postTitle" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postCategory">Categoria</label>
+                        <select id="postCategory" class="form-control" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Guia de Raças">🐕 Guia de Raças</option>
+                            <option value="Cuidados">💊 Cuidados</option>
+                            <option value="Treinamento">🎾 Treinamento</option>
+                            <option value="Alimentação">🍖 Alimentação</option>
+                            <option value="Saúde">🏥 Saúde</option>
+                            <option value="Comportamento">🧠 Comportamento</option>
+                            <option value="Adoção">❤️ Adoção</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postImage">URL da Imagem</label>
+                    <small class="size-hint">📏 Tamanho recomendado: 800x400px (2:1) - Mínimo: 600x300px</small>
+                    <input type="url" id="postImage" class="form-control"
+                        placeholder="Ex: https://i.imgur.com/abc123.jpg (800x400px)">
+                </div>
+
+                <div class="form-group">
+                    <label for="postExcerpt">Resumo</label>
+                    <textarea id="postExcerpt" class="form-control" placeholder="Breve descrição do post..."
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postContent">Conteúdo Completo</label>
+                    <textarea id="postContent" class="form-control" placeholder="Conteúdo detalhado do post..." required
+                        style="min-height: 200px;"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closePostModal()">
+                        ❌ Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        💾 Salvar Post
                     </button>
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>🌟 Sobre a Socializa<span style="color: var(--primary-pink);">Pet</span></h3>
-                    <p>Conectando o mundo pet com amor, qualidade e dedicação. Seu companheiro merece o melhor que a
-                        vida pode oferecer! 💝</p>
-                    <div class="social-links">
-                        <a href="#" title="Instagram">📷</a>
-                        <a href="#" title="Facebook">📘</a>
-                        <a href="#" title="WhatsApp"></a>
-                        <a href="#" title="TikTok">🎵</a>
+    <!-- Banner Modal -->
+    <div class="modal" id="bannerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="bannerModalTitle">🖼️ Novo Banner</h2>
+                <button class="close-btn" onclick="closeBannerModal()">✕</button>
+            </div>
+
+            <form onsubmit="saveBanner(event)">
+                <div class="form-group">
+                    <label for="bannerPage">📄 Página do Banner</label>
+                    <select id="bannerPage" class="form-control" required>
+                        <option value="">Selecione a página...</option>
+                        <option value="home">🏠 Página Inicial (Home)</option>
+                        <option value="loja">🛍️ Loja</option>
+                        <option value="blog">📝 Blog</option>
+                        <option value="todas">🌟 Todas as Páginas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bannerTitle">Título do Banner</label>
+                    <input type="text" id="bannerTitle" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bannerText">Texto do Banner</label>
+                    <textarea id="bannerText" class="form-control"
+                        placeholder="Texto que aparece no banner..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="bannerImage">Imagem do Banner</label>
+                    <small class="size-hint">🎨 Aceita: URL de imagem OU código iframe do Google Drive</small>
+                    <textarea id="bannerImage" class="form-control" required
+                        placeholder="Cole aqui:\n1) URL: https://i.imgur.com/abc123.jpg\n2) Iframe: <iframe src=\"
+                        https://drive.google.com/file/d/.../preview\" width=\"640\"
+                        height=\"480\"></iframe>" rows="3"></textarea>
+                    <div class="input-type-detector" id="imageTypeDetector"
+                        style="margin-top: 5px; font-size: 0.8em; color: #666;"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bannerLink">Link (opcional)</label>
+                    <input type="url" id="bannerLink" class="form-control" placeholder="https://exemplo.com/destino">
+                </div>
+
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeBannerModal()">❌ Cancelar</button>
+                    <button type="submit" class="btn btn-success">💾 Salvar Banner</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="productModalTitle">🛒 Novo Produto</h2>
+                <button class="close-btn" onclick="closeProductModal()">✕</button>
+            </div>
+
+            <form onsubmit="saveProduct(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Nome do Produto</label>
+                        <input type="text" id="productName" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productPrice">Preço</label>
+                        <input type="text" id="productPrice" class="form-control" required placeholder="R$ 29,90">
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>🔗 Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="loja.html">Nossa Loja</a></li>
-                        <li><a href="#blog">Blog & Dicas</a></li>
-                        <li><a href="#galeria">Galeria</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>📱 Redes Sociais</h3>
-                    <ul>
-                        <li><a href="#">Instagram @socializapet</a></li>
-                        <li><a href="#">Facebook Socializa<span style="color: var(--primary-pink);">Pet</span></a></li>
-                        <li><a href="#">WhatsApp (11) 99999-9999</a></li>
-                        <li><a href="#">E-mail: contato@socializapet.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Socializa<span style="color: var(--primary-pink);">Pet</span>. Todos os direitos
-                    reservados. Feito com 💖 para os pets!</p>
-                <p class="developer-credit">Desenvolvido por <a href="LINK_DO_SEU_INSTAGRAM" target="_blank">🚀
-                        Enrike</a></p>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Scripts -->
-    <script src="js/script.js"></script>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoria</label>
+                        <select id="productCategory" class="form-control" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Ração">🍖 Ração</option>
+                            <option value="Brinquedos">🎾 Brinquedos</option>
+                            <option value="Acessórios">🎀 Acessórios</option>
+                            <option value="Cuidados">💊 Cuidados</option>
+                            <option value="Camas">🛏️ Camas</option>
+                            <option value="Coleiras">🦮 Coleiras</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImage">URL da Imagem</label>
+                        <small class="size-hint">🛍️ Tamanho recomendado: 400x400px (1:1) - Mínimo: 300x300px</small>
+                        <input type="url" id="productImage" class="form-control" required
+                            placeholder="Ex: https://i.imgur.com/ghi789.jpg (400x400px)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">Descrição</label>
+                    <textarea id="productDescription" class="form-control" required
+                        placeholder="Descrição detalhada do produto..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="productLink">🔗 Link de Compra</label>
+                    <small class="size-hint">💡 Link onde o cliente será direcionado ao clicar em "Comprar" (ex: Shopee,
+                        Mercado Livre, etc.)</small>
+                    <input type="url" id="productLink" class="form-control"
+                        placeholder="https://shopee.com.br/produto-exemplo">
+                </div>
+
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">❌ Cancelar</button>
+                    <button type="submit" class="btn btn-success">💾 Salvar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="galleryModalTitle">📸 Nova Imagem</h2>
+                <button class="close-btn" onclick="closeGalleryModal()">✕</button>
+            </div>
+
+            <form onsubmit="saveGalleryItem(event)">
+                <div class="form-group">
+                    <label for="galleryTitle">Título da Imagem</label>
+                    <input type="text" id="galleryTitle" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="galleryDescription">Descrição</label>
+                    <textarea id="galleryDescription" class="form-control"
+                        placeholder="Descrição da imagem..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="galleryImage">URL da Imagem</label>
+                    <small class="size-hint">📸 Tamanho recomendado: 500x400px (5:4) - Mínimo: 400x320px</small>
+                    <input type="url" id="galleryImage" class="form-control" required
+                        placeholder="Ex: https://i.imgur.com/jkl012.jpg (500x400px)">
+                </div>
+
+                <div class="form-group">
+                    <label for="galleryCategory">Categoria</label>
+                    <select id="galleryCategory" class="form-control" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Adoções">❤️ Adoções</option>
+                        <option value="Eventos">🎉 Eventos</option>
+                        <option value="Cuidados">💊 Cuidados</option>
+                        <option value="Diversão">🎾 Diversão</option>
+                        <option value="Famílias">👨‍👩‍👧‍👦 Famílias Felizes</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeGalleryModal()">❌ Cancelar</button>
+                    <button type="submit" class="btn btn-success">💾 Salvar Imagem</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
 </body>
 
 </html>
