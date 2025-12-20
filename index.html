@@ -16,7 +16,7 @@
 
 <body>
     <!-- Login Screen -->
-    <div class="login-container" id="loginContainer">
+    <div class="login-container" id="loginContainer">/-
         <div class="login-card">
             <div class="login-logo" id="adminLoginLogo">🐾</div>
             <h2 class="login-title">SocializaPet</h2>
@@ -75,11 +75,7 @@
                 <div class="stat-number" id="totalOrders">0</div>
                 <div class="stat-label">Pedidos</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">📸</div>
-                <div class="stat-number" id="totalGallery">0</div>
-                <div class="stat-label">Fotos na Galeria</div>
-            </div>
+
         </div>
 
         <div class="help-section">
@@ -94,9 +90,7 @@
                 <div class="guide-item">
                     <strong>🛒 Produtos:</strong> Recomendado 400x400px | Mínimo 300x300px (Proporção 1:1 Quadrado)
                 </div>
-                <div class="guide-item">
-                    <strong>📸 Galeria:</strong> Recomendado 500x400px | Mínimo 400x320px (Proporção 5:4)
-                </div>
+
             </div>
             <p class="guide-note">💡 Dica: Use serviços como Imgur.com ou Postimages.org para hospedar suas imagens e
                 gerar URLs.</p>
@@ -108,7 +102,7 @@
             <button class="nav-tab" onclick="showTab('banners')" id="bannersTab">🖼️ Banners</button>
             <button class="nav-tab" onclick="showTab('orders')" id="ordersTab">📦 Pedidos</button>
             <button class="nav-tab" onclick="showTab('products')" id="productsTab">🛒 Produtos</button>
-            <button class="nav-tab" onclick="showTab('gallery')" id="galleryTab">📸 Galeria</button>
+
             <button class="nav-tab" onclick="showTab('content')" id="contentTab">📄 Conteúdo</button>
             <button class="nav-tab" onclick="showTab('settings')" id="settingsTab">⚙️ Configurações</button>
         </div>
@@ -216,21 +210,7 @@
             </div>
         </div>
 
-        <!-- Gallery Management -->
-        <div class="tab-content" id="galleryContent">
-            <div class="posts-container">
-                <div class="posts-header">
-                    <h2>📸 Gerenciar Galeria</h2>
-                    <button class="btn btn-primary" onclick="openGalleryModal()">
-                        ➕ Nova Imagem
-                    </button>
-                </div>
 
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Gallery items will be loaded here -->
-                </div>
-            </div>
-        </div>
 
         <!-- Content Management -->
         <div class="tab-content" id="contentContent">
@@ -277,6 +257,27 @@
                     </div>
                 </div>
                 <button class="btn btn-success" onclick="saveContent('contact')">💾 Salvar Contato</button>
+            </div>
+
+            <div class="content-section">
+                <h3>🎉 Banner Promocional</h3>
+                <div class="form-group">
+                    <label>Título da Promoção</label>
+                    <input type="text" class="form-control" id="promoTitle" placeholder="Mês do Aniversário Pet! 🎂">
+                </div>
+                <div class="form-group">
+                    <label>Texto da Promoção</label>
+                    <input type="text" class="form-control" id="promoText" placeholder="Descontos especiais...">
+                </div>
+                <div class="form-group">
+                    <label>Texto do Botão</label>
+                    <input type="text" class="form-control" id="promoBtnText" placeholder="🎁 Eu Quero!">
+                </div>
+                <div class="form-group">
+                    <label>Link do Botão</label>
+                    <input type="text" class="form-control" id="promoLink" placeholder="#">
+                </div>
+                <button class="btn btn-success" onclick="saveContent('promo')">💾 Salvar Promoção</button>
             </div>
         </div>
 
@@ -372,7 +373,7 @@
 
                 <div class="form-group">
                     <label for="postImage">URL da Imagem</label>
-                    <small class="size-hint">📏 Tamanho recomendado: 800x400px (2:1) - Mínimo: 600x300px</small>
+                    <small class="size-hint">📏 Tamanho recomendado: 800x500px (1.6:1) - Mínimo: 600x375px</small>
                     <input type="url" id="postImage" class="form-control"
                         placeholder="Ex: https://i.imgur.com/abc123.jpg (800x400px)">
                 </div>
@@ -412,12 +413,18 @@
             <form onsubmit="saveBanner(event)">
                 <div class="form-group">
                     <label for="bannerPage">📄 Página do Banner</label>
-                    <select id="bannerPage" class="form-control" required>
+                    <select id="bannerPage" class="form-control" onchange="updateBannerPositions()" required>
                         <option value="">Selecione a página...</option>
                         <option value="home">🏠 Página Inicial (Home)</option>
                         <option value="loja">🛍️ Loja</option>
                         <option value="blog">📝 Blog</option>
-                        <option value="todas">🌟 Todas as Páginas</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="bannerPositionGroup" style="display:none;">
+                    <label for="bannerPosition">📍 Posição do Banner</label>
+                    <select id="bannerPosition" class="form-control">
+                        <!-- Options populated by JS -->
                     </select>
                 </div>
 
@@ -493,7 +500,7 @@
 
                     <div class="form-group">
                         <label for="productImage">URL da Imagem</label>
-                        <small class="size-hint">🛍️ Tamanho recomendado: 400x400px (1:1) - Mínimo: 300x300px</small>
+                        <small class="size-hint">🛍️ Tamanho recomendado: 500x500px (1:1) - Mínimo: 300x300px</small>
                         <input type="url" id="productImage" class="form-control" required
                             placeholder="Ex: https://i.imgur.com/ghi789.jpg (400x400px)">
                     </div>
@@ -521,52 +528,7 @@
         </div>
     </div>
 
-    <!-- Gallery Modal -->
-    <div class="modal" id="galleryModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="galleryModalTitle">📸 Nova Imagem</h2>
-                <button class="close-btn" onclick="closeGalleryModal()">✕</button>
-            </div>
 
-            <form onsubmit="saveGalleryItem(event)">
-                <div class="form-group">
-                    <label for="galleryTitle">Título da Imagem</label>
-                    <input type="text" id="galleryTitle" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="galleryDescription">Descrição</label>
-                    <textarea id="galleryDescription" class="form-control"
-                        placeholder="Descrição da imagem..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="galleryImage">URL da Imagem</label>
-                    <small class="size-hint">📸 Tamanho recomendado: 500x400px (5:4) - Mínimo: 400x320px</small>
-                    <input type="url" id="galleryImage" class="form-control" required
-                        placeholder="Ex: https://i.imgur.com/jkl012.jpg (500x400px)">
-                </div>
-
-                <div class="form-group">
-                    <label for="galleryCategory">Categoria</label>
-                    <select id="galleryCategory" class="form-control" required>
-                        <option value="">Selecione uma categoria</option>
-                        <option value="Adoções">❤️ Adoções</option>
-                        <option value="Eventos">🎉 Eventos</option>
-                        <option value="Cuidados">💊 Cuidados</option>
-                        <option value="Diversão">🎾 Diversão</option>
-                        <option value="Famílias">👨‍👩‍👧‍👦 Famílias Felizes</option>
-                    </select>
-                </div>
-
-                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
-                    <button type="button" class="btn btn-secondary" onclick="closeGalleryModal()">❌ Cancelar</button>
-                    <button type="submit" class="btn btn-success">💾 Salvar Imagem</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <script src="js/admin.js"></script>
 </body>
